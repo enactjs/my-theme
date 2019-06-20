@@ -1,0 +1,22 @@
+// Icon.module.less
+//
+@import "../styles/mixins.less";
+@import "../styles/variables.less";
+@import "../styles/skin.less";
+
+.icon {
+	.applySkins({
+		width: @my-theme-icon-size;
+		height: @my-theme-icon-size;
+		background-position: center -((@my-theme-icon-sprite-size - @my-theme-icon-size) / 2);
+		background-size: @my-theme-icon-sprite-size (@my-theme-icon-sprite-size * 2);
+		background-repeat: no-repeat;
+		margin: @my-theme-icon-margin;
+		font-family: @my-theme-icon-font-family;
+		font-size: @my-theme-icon-font-size;
+		line-height: @my-theme-icon-size;
+		text-align: center;
+		position: relative;
+		color: inherit;
+	});
+}

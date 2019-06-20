@@ -16,21 +16,36 @@
 @my-theme-white:       #fff;
 
 // Component color assignments
-@my-theme-bg-color: #b19778;
-@my-theme-bg-image: none;
-@my-theme-text-color: #5244a4;
-@my-theme-border-color:  #595959;
-@my-theme-title-text-color: @my-theme-white;
+@my-theme-bg-color:          #b19778;
+@my-theme-bg-image:          none;
+@my-theme-text-color:        #5244a4;
+@my-theme-border-color:      #595959;
+@my-theme-title-text-color:  @my-theme-white;
 
 // Disabled Opacity
 // ---------------------------------------
 @my-theme-disabled-opacity: 0.6;
 @my-theme-disabled-translucent-opacity: 0.4;
 
+// Button
+// ---------------------------------------
+@my-theme-button-color:              @my-theme-foreground;
+@my-theme-button-bg-color:           @my-theme-background;
+@my-theme-button-border-color:       @my-theme-border-color;
+@my-theme-button-focus-color:        @my-theme-spotlight-color;
+@my-theme-button-focus-bg-color:     @my-theme-background-focus;
+@my-theme-button-focus-bg-image:     @my-theme-gradient;
+@my-theme-button-selected-bg-color:  @my-theme-gradient;
+@my-theme-button-selected-color:     @my-theme-foreground-active;
+
 // Heading
 // ---------------------------------------
-@my-theme-heading-text-color: @my-theme-text-color;
-@my-theme-heading-border-color: @my-theme-border-color;
+@my-theme-heading-text-color:    @my-theme-text-color;
+@my-theme-heading-border-color:  @my-theme-border-color;
+
+// Icon
+// ---------------------------------------
+@my-theme-icon-color: @my-theme-text-color;
 
 // Spotlight and State
 // ---------------------------------------
@@ -38,4 +53,4 @@
 @my-theme-spotlight-bg-color:             @my-theme-background-focus;
 @my-theme-spotlight-border-color:         transparent;
 @my-theme-spotlight-disabled-text-color:  fade(@my-theme-spotlight-color, 40%);
-@my-theme-spotlight-focus-bg-image: @my-theme-gradient;
+@my-theme-spotlight-focus-bg-image:       @my-theme-gradient;

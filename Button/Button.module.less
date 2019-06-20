@@ -1,0 +1,91 @@
+// Button.module.less
+//
+@import "../styles/mixins.less";
+@import "../styles/variables.less";
+@import "../styles/skin.less";
+
+.button {
+	.applySkins({
+		height: @my-theme-button-height;
+		font-weight: @my-theme-button-font-weight;
+		letter-spacing: @my-theme-button-letter-spacing;
+		text-indent: @my-theme-button-letter-spacing;  // Keep the text centered
+		min-width: @my-theme-button-height;
+		padding: 0 @my-theme-button-h-padding;
+		margin: 0 @my-theme-component-spacing;
+		box-sizing: border-box;
+		font-size: @my-theme-button-font-size;
+		vertical-align: middle;
+
+		&.minWidth {
+			padding: 0;
+
+			.client .icon {
+				margin: 0;
+			}
+		}
+
+		.bg {
+			background-color: @my-theme-button-bg-color;
+			border: @my-theme-button-border-width solid @my-theme-button-border-color;
+			color: @my-theme-button-color;
+		}
+
+		.client {
+			padding: @my-theme-button-border-width;	// We match the amount removed by the line-height above, so the text doesn't overlap the border
+			color: @my-theme-button-color;
+
+			.icon {
+				-webkit-margin-start: 0;
+				// height: 0;
+				// line-height: 0;
+				// margin-top: 0;
+				// margin-bottom: 0;
+			}
+		}
+
+		// Button-non-disabled rules
+		&:not([disabled]) {
+			.focus({
+				&.pressed,
+				&:active {
+					.bg {
+						// -webkit-animation-name: expand;
+						// animation-name: expand;
+					}
+				}
+			});
+		}
+
+		&.selected {
+			.bg {
+				background-color: @my-theme-button-selected-bg-color;
+			}
+
+			&,
+			.client {
+				color: @my-theme-button-selected-color;
+			}
+		}
+	});
+
+	// TODO: Replace with an updated .focus() mixin that can apply rules both when focused and
+	// within a focused node
+	&:global(.spottable):focus,
+	:global(.spottable):focus & {
+		.applySkins({
+			background-color: transparent;
+			background-image: none;
+
+			.bg {
+				background-color: @my-theme-button-focus-bg-color;
+				background-image: @my-theme-button-focus-bg-image;
+			}
+
+			&,
+			.client {
+				color: @my-theme-button-focus-color;
+			}
+		});
+	}
+}
