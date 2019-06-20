@@ -1,0 +1,27 @@
+// Heading.module.less
+//
+@import "../styles/variables.less";
+@import "../styles/mixins.less";
+@import "../styles/skin.less";
+
+.heading {
+	.applySkins({
+		color: @my-theme-heading-text-color;
+		border-bottom: @my-theme-heading-border-width solid transparent;
+		margin: 0 @my-theme-spotlight-outset (1.5 * @my-theme-spotlight-outset) @my-theme-spotlight-outset;
+		min-height: (1.5 * @my-theme-spotlight-outset);
+		letter-spacing: @my-theme-heading-letter-spacing;
+		line-height: @my-theme-heading-line-height;
+
+		&.showLine {
+			border-bottom-color: @my-theme-heading-border-color;
+		}
+	});
+
+	// Margin-bottom is set up this way so the presence of the line does not affect the height of the Heading.
+	// We simply toggle the color from transparent to "colored" below, leaving the height untouched.
+	&.noneSpacing {
+		margin-bottom: 0;
+		min-height: 0;
+	}
+}
