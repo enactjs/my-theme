@@ -1,0 +1,35 @@
+// Skin colors definitions
+//
+
+// Named Colors
+@my-theme-background: transparent;
+@my-theme-foreground: fade(white, 75%);
+@my-theme-background-active: #e2b1de;
+@my-theme-foreground-active: lighten(black, 15%);
+@my-theme-background-focus: #a97b98;
+@my-theme-foreground-focus: black;
+@my-theme-gradient: linear-gradient(@my-theme-background-active, @my-theme-background-focus);
+@my-theme-darker-gray: #262626;
+@my-theme-dark-gray:   #4d4d4d;
+@my-theme-gray:        #a6a6a6;
+@my-theme-light-gray:  #ededed;
+@my-theme-white:       #fff;
+
+// Component color assignments
+@my-theme-bg-color: #b19778;
+@my-theme-bg-image: none;
+@my-theme-text-color: #5244a4;
+@my-theme-title-text-color: @my-theme-white;
+
+// Disabled Opacity
+// ---------------------------------------
+@my-theme-disabled-opacity: 0.6;
+@my-theme-disabled-translucent-opacity: 0.4;
+
+// Spotlight and State
+// ---------------------------------------
+@my-theme-spotlight-color:                @my-theme-foreground-focus;
+@my-theme-spotlight-bg-color:             @my-theme-background-focus;
+@my-theme-spotlight-border-color:         transparent;
+@my-theme-spotlight-disabled-text-color:  fade(@my-theme-spotlight-color, 40%);
+@my-theme-spotlight-focus-bg-image: @my-theme-gradient;
