@@ -1,0 +1,12 @@
+// skin.less
+//
+
+.applySkins(@componentRules) when (isruleset(@componentRules)) {
+	&:global(.my-skin) {
+		// Load the my-skin rules into this scope
+		@import "./colors-my-skin.less";
+		@import "./variables-my-skin.less";
+
+		@componentRules();
+	}
+}
