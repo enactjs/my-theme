@@ -7,9 +7,11 @@ This theme is a minimal set of components and styles that can be used to start a
 
 ### Components
 
-* `BodyText` 
-* `Heading` 
-* `MyThemeDecorator` 
+* `BodyText`
+* `Button`
+* `Heading`
+* `Icon`
+* `MyThemeDecorator`
 
 ## Customizing
 
