@@ -11,6 +11,7 @@ This theme is a minimal set of components and styles that can be used to start a
 * `Button`
 * `Heading`
 * `Icon`
+* `Item`
 * `MyThemeDecorator`
 
 ## Customizing

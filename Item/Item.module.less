@@ -1,0 +1,28 @@
+// Item.module.less
+//
+@import "../styles/mixins.less";
+@import "../styles/skin.less";
+
+.item {
+	position: relative;
+
+	.content {
+		/* Available for override customization */
+	}
+
+	.applySkins({
+		.my-theme-item-sizing();
+
+		line-height: @my-theme-item-line-height;
+		color: @my-theme-item-color;
+
+		&.inline {
+			max-width: 240px;
+		}
+
+		.focus({
+			background-color: @my-theme-item-focus-bg-color;
+			color: @my-theme-item-focus-color;
+		});
+	});
+}
