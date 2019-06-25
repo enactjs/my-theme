@@ -9,10 +9,12 @@ This theme is a minimal set of components and styles that can be used to start a
 
 * `BodyText`
 * `Button`
+* `Checkbox`
 * `Heading`
 * `Icon`
 * `Item`
 * `MyThemeDecorator`
+* `RadioItem`
 * `SlotItem`
 * `ToggleIcon`
 * `ToggleItem`

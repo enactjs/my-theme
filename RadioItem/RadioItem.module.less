@@ -1,0 +1,50 @@
+// RadioItem.module.less
+//
+@import "../styles/mixins.less";
+@import "../styles/skin.less";
+
+// Public
+.radioItem {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+
+	.applySkins({
+		border-bottom: @my-theme-radioitem-separator-border-width solid @my-theme-radioitem-separator-border-color;
+		.my-theme-item-sizing();
+
+		.icon {
+			border-color: @my-theme-radioitem-icon-border-color;
+			border-style: solid;
+			border-width: @my-theme-radioitem-icon-border-width;
+			background-color: @my-theme-radioitem-icon-bg-color;
+			border-radius: @my-theme-radioitem-icon-border-radius;
+			color: transparent;
+		}
+
+		.text {
+			color: @my-theme-radioitem-color;
+			flex: 1;
+		}
+
+		.focus({
+			color: @my-theme-radioitem-focus-color;
+
+			.icon {
+				color: @my-theme-radioitem-icon-focus-color;
+				background-color: @my-theme-radioitem-icon-focus-bg-color;
+			}
+
+			.text {
+				color: @my-theme-radioitem-focus-color;
+			}
+		});
+
+		&.selected {
+			.icon {
+				color: @my-theme-radioitem-icon-selected-color;
+				background-color: @my-theme-radioitem-icon-selected-bg-color;
+			}
+		}
+	});
+}

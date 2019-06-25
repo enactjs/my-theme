@@ -21,3 +21,39 @@
 	padding-left: @my-theme-item-side-outset;
 	padding-right: @my-theme-item-side-outset;
 }
+
+//
+// Custom Text Size Mixins
+//
+// 1 arg: Shorthand for just setting the font size in custom-text mode
+.my-theme-custom-text-size(@latin-size) {
+	.my-theme-custom-text({
+		font-size: @latin-size;
+	});
+}
+// 2 args: Shorthand for just setting the font size of both latin and non-latin in custom-text mode
+.my-theme-custom-text-size(@latin-size; @non-latin-size) {
+	.my-theme-custom-text(
+	{
+		font-size: @latin-size;
+	};
+	{
+		font-size: @non-latin-size;
+	});
+}
+
+// 1 arg: Generic rule applicator, accepts an entire rule-set to add for large text mode
+.my-theme-custom-text(@lrules) when (isruleset(@lrules)) {
+	&:global(.largeText) {
+		@lrules();
+	}
+}
+// 2 args: Generic rule applicator, accepts 2 entire rule-sets to add both latin and non-latin for large text mode
+.my-theme-custom-text(@lrules; @nlrules) when (isruleset(@lrules)) and (isruleset(@nlrules)) {
+	&:global(.largeText) {
+		@lrules();
+	}
+	:global(.enact-locale-non-latin) &:global(.largeText) {
+		@nlrules();
+	}
+}
