@@ -1,7 +1,7 @@
 /**
- * Exports the {@link my-theme/MyThemeDecorator.MyThemeDecorator} HOC
+ * Exports the {@link my-theme/ThemeDecorator.ThemeDecorator} HOC
  *
- * @module my-theme/MyThemeDecorator
+ * @module my-theme/ThemeDecorator
  */
 
 import {addAll} from '@enact/core/keymap';
@@ -12,16 +12,15 @@ import {ResolutionDecorator} from '@enact/ui/resolution';
 import {FloatingLayerDecorator} from '@enact/ui/FloatingLayer';
 import SpotlightRootDecorator from '@enact/spotlight/SpotlightRootDecorator';
 
-
 import Skinnable from '../Skinnable';
 
 import screenTypes from './screenTypes.json';
-import css from './MyThemeDecorator.less';
+import css from './ThemeDecorator.less';
 
 /**
- * Default config for {@link my-theme/MyThemeDecorator.MyThemeDecorator}.
+ * Default config for {@link my-theme/ThemeDecorator.ThemeDecorator}.
  *
- * @memberof my-theme/MyThemeDecorator
+ * @memberof my-theme/ThemeDecorator
  * @hocconfig
  */
 const defaultConfig = {
@@ -35,11 +34,11 @@ const defaultConfig = {
 };
 
 /**
- * {@link my-theme/MyThemeDecorator.MyThemeDecorator} is a Higher-order Component that applies
+ * {@link my-theme/ThemeDecorator.ThemeDecorator} is a Higher-order Component that applies
  * MyTheme theming to an application. It also applies
  * [floating layer]{@link ui/FloatingLayer.FloatingLayerDecorator},
  * [resolution independence]{@link ui/resolution.ResolutionDecorator},
- * [custom text sizing]{@link my-theme/MyThemeDecorator.TextSizeDecorator},
+ * [custom text sizing]{@link my-theme/ThemeDecorator.TextSizeDecorator},
  * [skin support]{@link ui/Skinnable}, [spotlight]{@link spotlight.SpotlightRootDecorator}, and
  * [internationalization support]{@link i18n/I18nDecorator.I18nDecorator}. It is meant to be applied to
  * the root element of an app.
@@ -48,12 +47,12 @@ const defaultConfig = {
  * supported skins for MyTheme are "zircon" (the default, dark skin) and "zircon-light".
  * Use the `skin` property to assign a skin. Ex: `<DecoratedApp skin="light" />`
  *
- * @class MyThemeDecorator
- * @memberof my-theme/MyThemeDecorator
+ * @class ThemeDecorator
+ * @memberof my-theme/ThemeDecorator
  * @hoc
  * @public
  */
-const MyThemeDecorator = hoc(defaultConfig, (config, Wrapped) => {
+const ThemeDecorator = hoc(defaultConfig, (config, Wrapped) => {
 	const {float, noAutoFocus, ri, skin, spotlight} = config;
 
 	const bgClassName = 'enact-fit';
@@ -72,7 +71,7 @@ const MyThemeDecorator = hoc(defaultConfig, (config, Wrapped) => {
 	});
 
 	const Decorator = class extends React.Component {
-		static displayName = 'MyThemeDecorator';
+		static displayName = 'ThemeDecorator';
 
 		render () {
 			const allClassNames = classnames(
@@ -91,5 +90,5 @@ const MyThemeDecorator = hoc(defaultConfig, (config, Wrapped) => {
 	return Decorator;
 });
 
-export default MyThemeDecorator;
-export {MyThemeDecorator};
+export default ThemeDecorator;
+export {ThemeDecorator};
