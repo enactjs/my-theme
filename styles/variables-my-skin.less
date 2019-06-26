@@ -9,18 +9,25 @@
 @my-theme-base-font-size: 24px;
 @my-theme-base-font-weight: 400;
 @my-theme-base-font-ligatures: none;
+@my-theme-base-letter-spacing: normal;
 @my-theme-icon-font-family: "Moonstone Icons";
 @my-theme-component-spacing: 12px;
 @my-theme-header-line-height: 1.3em;
 
+// BodyText
+// ---------------------------------------
+@my-theme-bodytext-margin: 0 @my-theme-spotlight-outset;
+@my-theme-bodytext-padding: initial;
+
 // Button
 // ---------------------------------------
 @my-theme-button-height: 84px;
-@my-theme-button-font-weight: 400;
-@my-theme-button-letter-spacing: normal;
+@my-theme-button-font-weight: @my-theme-base-font-weight;
+@my-theme-button-letter-spacing: @my-theme-base-letter-spacing;
 @my-theme-button-font-size: 36px;
 @my-theme-button-border-width: 1px;
-@my-theme-button-h-padding: 27px;
+@my-theme-button-padding: 0 27px;
+@my-theme-button-margin: 0 @my-theme-component-spacing;
 
 // Checkbox
 // ---------------------------------------
@@ -31,7 +38,7 @@
 // Heading
 // ---------------------------------------
 @my-theme-heading-border-width: 1px;
-@my-theme-heading-letter-spacing: 0;
+@my-theme-heading-letter-spacing: @my-theme-base-letter-spacing;
 @my-theme-heading-line-height: @my-theme-header-line-height;
 
 // Icon Sizes
