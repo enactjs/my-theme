@@ -7,15 +7,15 @@
 .button {
 	.applySkins({
 		height: @my-theme-button-height;
+		min-width: @my-theme-button-height;
+		padding: @my-theme-button-padding;
+		margin: @my-theme-button-margin;
+		box-sizing: border-box;
+		vertical-align: middle;
+		font-size: @my-theme-button-font-size;
 		font-weight: @my-theme-button-font-weight;
 		letter-spacing: @my-theme-button-letter-spacing;
 		text-indent: @my-theme-button-letter-spacing;  // Keep the text centered
-		min-width: @my-theme-button-height;
-		padding: 0 @my-theme-button-h-padding;
-		margin: 0 @my-theme-component-spacing;
-		box-sizing: border-box;
-		font-size: @my-theme-button-font-size;
-		vertical-align: middle;
 
 		&.minWidth {
 			padding: 0;
