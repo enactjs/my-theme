@@ -55,23 +55,12 @@ const PanelBase = kind({
 		autoFocus: PropTypes.string,
 
 		/**
-		 * Footer for the panel.
-		 *
-		 * This is usually passed by the [Slottable]{@link ui/Slottable.Slottable} API by using a
-		 * [Footer]{@link my-theme/Panels.Header} component as a child of the Panel.
-		 *
-		 * @type {Footer}
-		 * @public
-		 */
-		footer: PropTypes.node,
-
-		/**
 		 * Header for the panel.
 		 *
-		 * This is usually passed by the [Slottable]{@link ui/Slottable.Slottable} API by using a
-		 * [Header]{@link my-theme/Panels.Header} component as a child of the Panel.
+		 * This can also be passed by the [Slottable]{@link ui/Slottable.Slottable} API by using a
+		 * component that has a `defaultSlot` value of `'header'`.
 		 *
-		 * @type {Header}
+		 * @type {Node}
 		 * @public
 		 */
 		header: PropTypes.node,
@@ -144,9 +133,8 @@ const PanelBase = kind({
 			return spotOnRender;
 		},
 		children: ({children, hideChildren}) => hideChildren ? null : children,
-		bodyClassName: ({footer, header, hideChildren, styler}) => styler.join({
+		bodyClassName: ({header, hideChildren, styler}) => styler.join({
 			body: true,
-			noFooter: !footer,
 			noHeader: !header,
 			visible: !hideChildren
 		}),
@@ -156,7 +144,7 @@ const PanelBase = kind({
 		headerId: ({'aria-label': label}) => label ? null : `panel_${++panelId}_header`
 	},
 
-	render: ({bodyClassName, css, children, footer, header, headerId, spotOnRender, ...rest}) => {
+	render: ({bodyClassName, css, children, header, headerId, spotOnRender, ...rest}) => {
 		delete rest.autoFocus;
 		delete rest.hideChildren;
 
@@ -181,12 +169,6 @@ const PanelBase = kind({
 				>
 					{children}
 				</Cell>
-				<Cell
-					className={css.footer}
-					shrink
-				>
-					{footer}
-				</Cell>
 			</Column>
 		);
 	}
@@ -201,7 +183,7 @@ const Panel = SpotlightContainerDecorator(
 		preserveId: true
 	},
 	Slottable(
-		{slots: ['footer', 'header']},
+		{slots: ['header']},
 		Skinnable(
 			PanelBase
 		)
