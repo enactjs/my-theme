@@ -13,9 +13,10 @@ This theme is a minimal set of components and styles that can be used to start a
 * `Heading`
 * `Icon`
 * `Item`
-* `ThemeDecorator`
+* `Panels` - also exports `Panel`
 * `RadioItem`
 * `SlotItem`
+* `ThemeDecorator`
 * `ToggleIcon`
 * `ToggleItem`
 
