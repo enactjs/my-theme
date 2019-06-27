@@ -27,20 +27,20 @@
 
 		.bg {
 			background-color: @my-theme-button-bg-color;
-			border: @my-theme-button-border-width solid @my-theme-button-border-color;
-			color: @my-theme-button-color;
+			background-image: @my-theme-button-bg-image;
+			border-color: @my-theme-button-border-color;
+			border-style: @my-theme-button-border-style;
+			border-width: @my-theme-button-border-width;
+			border-radius: @my-theme-button-border-radius;
+			transition: @my-theme-button-bg-transition;
 		}
 
 		.client {
 			padding: @my-theme-button-border-width;	// We match the amount removed by the line-height above, so the text doesn't overlap the border
-			color: @my-theme-button-color;
+			color: @my-theme-button-text-color;
 
 			.icon {
 				-webkit-margin-start: 0;
-				// height: 0;
-				// line-height: 0;
-				// margin-top: 0;
-				// margin-bottom: 0;
 			}
 		}
 
@@ -50,11 +50,18 @@
 				&.pressed,
 				&:active {
 					.bg {
-						// -webkit-animation-name: expand;
-						// animation-name: expand;
+						background-color: @my-theme-button-active-bg-color;
+						background-image: @my-theme-button-active-bg-image;
+						transform: @my-theme-button-pressed-transform;
+					}
+
+					&,
+					.client {
+						color: @my-theme-button-active-text-color;
 					}
 				}
 			});
+
 		}
 
 		&.selected {
@@ -64,7 +71,7 @@
 
 			&,
 			.client {
-				color: @my-theme-button-selected-color;
+				color: @my-theme-button-selected-text-color;
 			}
 		}
 	});
@@ -84,7 +91,7 @@
 
 			&,
 			.client {
-				color: @my-theme-button-focus-color;
+				color: @my-theme-button-focus-text-color;
 			}
 		});
 	}

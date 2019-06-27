@@ -18,6 +18,7 @@
 			border-style: solid;
 			border-width: @my-theme-radioitem-icon-border-width;
 			background-color: @my-theme-radioitem-icon-bg-color;
+			background-image: @my-theme-radioitem-icon-bg-image;
 			border-radius: @my-theme-radioitem-icon-border-radius;
 			color: transparent;
 		}
@@ -33,6 +34,7 @@
 			.icon {
 				color: @my-theme-radioitem-icon-focus-color;
 				background-color: @my-theme-radioitem-icon-focus-bg-color;
+				background-image: @my-theme-radioitem-icon-focus-bg-image;
 			}
 
 			.text {
@@ -44,7 +46,16 @@
 			.icon {
 				color: @my-theme-radioitem-icon-selected-color;
 				background-color: @my-theme-radioitem-icon-selected-bg-color;
+				background-image: @my-theme-radioitem-icon-selected-bg-image;
 			}
+
+			.focus({
+				.icon {
+					color: @my-theme-radioitem-icon-selected-focus-color;
+					background-color: @my-theme-radioitem-icon-selected-focus-bg-color;
+					background-image: @my-theme-radioitem-icon-selected-focus-bg-image;
+				}
+			});
 		}
 	});
 }
