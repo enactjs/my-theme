@@ -2,13 +2,20 @@
 //
 
 // Named Colors
-@my-theme-background: transparent;
+@my-theme-accent: #48f;
+@my-theme-accent-lighter: lighten(@my-theme-accent, 10%);
+@my-theme-accent-darker: darken(@my-theme-accent, 20%);
+
+@my-theme-highlight: #fc0;
+
 @my-theme-foreground: fade(white, 75%);
-@my-theme-background-active: #e2b1de;
-@my-theme-foreground-active: lighten(black, 15%);
-@my-theme-background-focus: #a97b98;
-@my-theme-foreground-focus: black;
-@my-theme-gradient: linear-gradient(@my-theme-background-active, @my-theme-background-focus);
+@my-theme-background: @my-theme-accent;
+@my-theme-foreground-focus: @my-theme-white;
+@my-theme-background-focus: @my-theme-accent-lighter;
+@my-theme-foreground-active: darken(@my-theme-foreground-focus, 5%);
+@my-theme-background-active: @my-theme-accent-darker;
+
+@my-theme-gradient: linear-gradient(to bottom, fade(white, 40%), transparent);
 @my-theme-darker-gray: #262626;
 @my-theme-dark-gray:   #4d4d4d;
 @my-theme-gray:        #a6a6a6;
@@ -16,10 +23,13 @@
 @my-theme-white:       #fff;
 
 // Component color assignments
-@my-theme-bg-color:          #b19778;
+//
+
+// ThemeDecorator
+@my-theme-bg-color:          #ddd;
 @my-theme-bg-image:          none;
-@my-theme-text-color:        #5244a4;
-@my-theme-border-color:      #595959;
+@my-theme-text-color:        @my-theme-accent;
+@my-theme-border-color:      @my-theme-accent-darker;
 @my-theme-title-text-color:  @my-theme-white;
 
 // Disabled Opacity
@@ -38,14 +48,19 @@
 
 // Button
 // ---------------------------------------
-@my-theme-button-color:              @my-theme-foreground;
-@my-theme-button-bg-color:           @my-theme-background;
-@my-theme-button-border-color:       @my-theme-border-color;
-@my-theme-button-focus-color:        @my-theme-spotlight-color;
-@my-theme-button-focus-bg-color:     @my-theme-background-focus;
-@my-theme-button-focus-bg-image:     @my-theme-gradient;
-@my-theme-button-selected-bg-color:  @my-theme-gradient;
-@my-theme-button-selected-color:     @my-theme-foreground-active;
+@my-theme-button-text-color:           @my-theme-foreground;
+@my-theme-button-bg-color:             @my-theme-background;
+@my-theme-button-bg-image:             @my-theme-gradient;
+@my-theme-button-border-color:         @my-theme-border-color;
+@my-theme-button-focus-text-color:     @my-theme-foreground-focus;
+@my-theme-button-focus-bg-color:       @my-theme-background-focus;
+@my-theme-button-focus-bg-image:       @my-theme-button-bg-image;
+@my-theme-button-active-text-color:    @my-theme-foreground-active;
+@my-theme-button-active-bg-color:      @my-theme-background-active;
+@my-theme-button-active-bg-image:      @my-theme-button-bg-image;
+@my-theme-button-selected-text-color:  @my-theme-foreground-active;
+@my-theme-button-selected-bg-color:    @my-theme-background-active;
+@my-theme-button-selected-bg-image:    @my-theme-button-bg-image;
 
 // Checkbox
 // ---------------------------------------
@@ -76,7 +91,13 @@
 @my-theme-radioitem-separator-border-color: @my-theme-heading-border-color;
 @my-theme-radioitem-icon-border-color: @my-theme-foreground-focus;
 @my-theme-radioitem-icon-bg-color: transparent;
+@my-theme-radioitem-icon-bg-image: linear-gradient(to top, white, transparent);
+@my-theme-radioitem-icon-focus-color: fade(@my-theme-foreground-focus, 50%);
 @my-theme-radioitem-icon-focus-bg-color: @my-theme-radioitem-icon-bg-color;
-@my-theme-radioitem-icon-focus-color: @my-theme-foreground-focus;
-@my-theme-radioitem-icon-selected-bg-color: @my-theme-radioitem-icon-bg-color;
+@my-theme-radioitem-icon-focus-bg-image: @my-theme-radioitem-icon-bg-image;
 @my-theme-radioitem-icon-selected-color: @my-theme-background-active;
+@my-theme-radioitem-icon-selected-bg-color: @my-theme-radioitem-icon-bg-color;
+@my-theme-radioitem-icon-selected-bg-image: linear-gradient(to bottom, white, transparent);
+@my-theme-radioitem-icon-selected-focus-color: @my-theme-background-active;
+@my-theme-radioitem-icon-selected-focus-bg-color: @my-theme-radioitem-icon-selected-bg-color;
+@my-theme-radioitem-icon-selected-focus-bg-image: @my-theme-radioitem-icon-selected-bg-image;

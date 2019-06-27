@@ -69,13 +69,15 @@ const SlotItemBase = kind({
 		publicClassNames: ['slotItem']
 	},
 
-	render: (props) => {
+	render: ({children, css, ...rest}) => {
 		return (
 			<UiSlotItemBase
-				{...props}
+				{...rest}
 				component={ItemBase}
-				css={props.css}
-			/>
+				css={css}
+			>
+				<div className={css.content}>{children}</div>
+			</UiSlotItemBase>
 		);
 	}
 });
