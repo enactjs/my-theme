@@ -18,9 +18,10 @@
 }
 .applySkins({
 
+	// Selected text (like when clicking and dragging the cursor over text)
 	::selection {
-		color: @my-theme-spotlight-color;
-		background-color: @my-theme-spotlight-bg-color; // lighten(@my-theme-spotlight-bg-color, 18%);
+		color: @my-theme-spotlight-text-color;
+		background-color: @my-theme-spotlight-bg-color;
 	}
 
 	// Spotlight
@@ -31,15 +32,15 @@
 	// argument to the focus mixin. This allows that set of rules to prevail over this generic set.
 	//// Inherited Spottable rules (for components that aren't directly skinned)
 	.focus({
-		color: @my-theme-spotlight-color;
+		color: @my-theme-spotlight-text-color;
 		background-color: @my-theme-spotlight-bg-color;
-		background-image: @my-theme-spotlight-focus-bg-image;
+		background-image: @my-theme-spotlight-bg-image;
 	}, parent);
 	//// Primary spottable rules (for any component with a skin applied to itself)
 	.focus({
-		color: @my-theme-spotlight-color;
+		color: @my-theme-spotlight-text-color;
 		background-color: @my-theme-spotlight-bg-color;
-		background-image: @my-theme-spotlight-focus-bg-image;
+		background-image: @my-theme-spotlight-bg-image;
 	});
 
 	// Disabled Components

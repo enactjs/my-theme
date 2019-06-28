@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import {shape, SlideLeftArranger, SlideTopArranger, ViewManager} from '@enact/ui/ViewManager';
 
+import Skinnable from '../Skinnable';
+
 import Panel from './Panel';
 
 import componentCss from './Panels.module.less';
@@ -60,8 +62,8 @@ const PanelsBase = kind({
 	},
 	styles: {
 		css: componentCss,
-		className: 'panels',
-		publicClassNames: 'panels enact-fit'
+		className: 'panels enact-fit',
+		publicClassNames: true
 	},
 	computed: {
 		arranger: ({arranger, orientation}) => {
@@ -84,9 +86,11 @@ const PanelsBase = kind({
 	}
 });
 
-export default PanelsBase;
+const Panels = Skinnable(PanelsBase);
+
+export default Panels;
 export {
 	Panel,
-	PanelsBase as Panels,
+	Panels,
 	PanelsBase
 };

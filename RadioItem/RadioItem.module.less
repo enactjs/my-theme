@@ -1,19 +1,34 @@
 // RadioItem.module.less
 //
-@import "../styles/mixins.less";
+@import "../styles/variables.less";
 @import "../styles/skin.less";
+@import "../styles/mixins.less";
 
 // Public
 .radioItem {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
+	/* Available for customization */
+}
 
+// Style ToggleIcon using published classes from ToggleItem and ToggleIcon
+.toggleIcon {
+	// Skin colors
 	.applySkins({
-		border-bottom: @my-theme-radioitem-separator-border-width solid @my-theme-radioitem-separator-border-color;
-		.my-theme-item-sizing();
-
 		.icon {
+			width: @my-theme-radioitem-icon-size;
+			height: @my-theme-radioitem-icon-size;
+			border-radius: 96px;
+			flex-shrink: 0;
+			margin-right: 0;
+			margin-left: 0;
+			box-shadow: inset 0 0 0 @my-theme-radioitem-icon-border-width;
+
+			&::before {
+				content: "";
+				position: absolute;
+				.position(4px);
+				border-radius: inherit;
+			}
+
 			border-color: @my-theme-radioitem-icon-border-color;
 			border-style: solid;
 			border-width: @my-theme-radioitem-icon-border-width;
@@ -23,39 +38,60 @@
 			color: transparent;
 		}
 
-		.text {
-			color: @my-theme-radioitem-color;
-			flex: 1;
-		}
-
-		.focus({
-			color: @my-theme-radioitem-focus-color;
-
-			.icon {
-				color: @my-theme-radioitem-icon-focus-color;
-				background-color: @my-theme-radioitem-icon-focus-bg-color;
-				background-image: @my-theme-radioitem-icon-focus-bg-image;
-			}
-
-			.text {
-				color: @my-theme-radioitem-focus-color;
-			}
-		});
-
 		&.selected {
 			.icon {
-				color: @my-theme-radioitem-icon-selected-color;
 				background-color: @my-theme-radioitem-icon-selected-bg-color;
-				background-image: @my-theme-radioitem-icon-selected-bg-image;
-			}
+				color: @my-theme-radioitem-icon-selected-color;
 
-			.focus({
-				.icon {
-					color: @my-theme-radioitem-icon-selected-focus-color;
-					background-color: @my-theme-radioitem-icon-selected-focus-bg-color;
-					background-image: @my-theme-radioitem-icon-selected-focus-bg-image;
+				&::before {
+					background-color: @my-theme-radioitem-icon-selected-color;
 				}
-			});
+			}
 		}
 	});
 }
+
+// When a parent is focused
+.focus({
+	.toggleIcon {
+		.applySkins({
+			.icon {
+				color: @my-theme-radioitem-icon-focus-color;
+				background-color: @my-theme-radioitem-icon-focus-bg-color;
+			}
+
+			&.selected {
+				.icon {
+					color: @my-theme-radioitem-icon-selected-focus-color;
+					background-color: @my-theme-radioitem-icon-selected-focus-bg-color;
+
+					&::before {
+						background-color: @my-theme-radioitem-icon-selected-focus-color;
+					}
+				}
+			}
+
+			.disabled({
+				opacity: @my-theme-disabled-opacity;
+			})
+		});
+	}
+});
+
+.muted({
+	.focus({
+		.toggleIcon {
+			.applySkins({
+				&.selected {
+					.icon {
+						background-color: @my-theme-radioitem-icon-selected-color;
+
+						&::before {
+							background-color: @my-theme-radioitem-icon-selected-bg-color;
+						}
+					}
+				}
+			});
+		}
+	}, parent);
+}, parent);
