@@ -45,6 +45,17 @@
 			}
 		}
 
+		&.small {
+			font-size: @my-theme-button-small-font-size;
+			font-weight: @my-theme-button-small-font-weight;
+			letter-spacing: @my-theme-button-small-letter-spacing;
+			height: @my-theme-button-small-height;
+			min-width: @my-theme-button-small-height;
+			line-height: (@my-theme-button-small-height - (2 * @my-theme-button-border-width));
+			margin: @my-theme-button-small-margin;
+			padding: @my-theme-button-small-padding;
+		}
+
 		// Button-non-disabled rules
 		&:not([disabled]) {
 			.focus({
