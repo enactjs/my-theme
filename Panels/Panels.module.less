@@ -1,5 +1,10 @@
 /* Styles for my-theme/Panels */
+@import "../styles/skin.less";
 
 .panels {
-	/* Is this the real life? */
+	.applySkins({
+		border-radius: @my-theme-panels-border-radius;
+		background-color: @my-theme-panels-background-color;
+		margin: @my-theme-panels-margin;
+	});
 }

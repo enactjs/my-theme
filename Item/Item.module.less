@@ -14,15 +14,17 @@
 		.my-theme-item-sizing();
 
 		line-height: @my-theme-item-line-height;
-		color: @my-theme-item-color;
+		color: @my-theme-item-text-color;
+		background-color: @my-theme-item-bg-color;
+		text-shadow: @my-theme-item-text-shadow;
 
 		&.inline {
 			max-width: 240px;
 		}
 
 		.focus({
+			color: @my-theme-item-focus-text-color;
 			background-color: @my-theme-item-focus-bg-color;
-			color: @my-theme-item-focus-color;
 		});
 	});
 }

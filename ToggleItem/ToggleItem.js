@@ -19,7 +19,6 @@
  * @exports ToggleItemDecorator
  */
 
-import hoc from '@enact/core/hoc';
 import kind from '@enact/core/kind';
 import EnactPropTypes from '@enact/core/internal/prop-types';
 import Pure from '@enact/ui/internal/Pure';
@@ -111,14 +110,6 @@ const ToggleItemBase = kind({
 });
 
 /**
- * Default config for {@link my-theme/ToggleItem.ToggleItemDecorator}.
- *
- * @memberof my-theme/ToggleItem.ToggleItemDecorator
- * @hocconfig
- */
-const defaultConfig = {};
-
-/**
  * Adds interactive functionality to `ToggleItemBase`.
  *
  * @class ToggleItemDecorator
@@ -129,14 +120,12 @@ const defaultConfig = {};
  * @hoc
  * @public
  */
-const ToggleItemDecorator = hoc(defaultConfig, (Wrapped) => {
-	return compose(
-		Pure,
-		UiToggleItemDecorator,
-		Spottable,
-		Skinnable
-	)(Wrapped);
-});
+const ToggleItemDecorator = compose(
+	Pure,
+	UiToggleItemDecorator,
+	Spottable,
+	Skinnable
+);
 
 /**
  * A MyTheme styled item with built-in support for toggling and `Spotlight` focus.
