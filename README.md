@@ -45,16 +45,12 @@ The starter theme comes with one skin (`my-skin`) and the variables and colors f
 
 ### Copy
 
-The easiest way to get a fresh copy is to clone the [`my-theme` repo](https://github.com/enactjs/my-theme.git).  If an existing project already has `@enact/my-theme` it can be copied from there, as well.
+The easiest way to get a fresh copy is to clone the [`my-theme` repo](https://github.com/enactjs/my-theme.git).
 
 It is recommended to choose a new name for the theme and use it as the project directory for the copy.
 
 ```
 git clone https://github.com/enactjs/my-theme.git uranium
-```
-or
-```
-mkdir uranium && cp -r path/to/node_modules/@enact/my-theme/* uranium 
 ```
 
 ### Rename
@@ -77,7 +73,7 @@ It can be helpful to look at other Enact modules' ([`@enact/agate`](https://gith
 
 #### Skins
 
-The `styles/skin.less` file sets up the named skins with their respective variables and color values.
+The `styles/skin.less` file sets up the named skins with their respective variables and color values.  It uses a mixin (`applySkins` in `styles/mixins.less`) to match a classname that is equal to a component's `skin` prop, imports the skin colors and variables, then applies the ruleset provided.
 
 First, add the skin name, such as `neutron`, to `Skinnable/Skinnable.js`.
 ```javascript
