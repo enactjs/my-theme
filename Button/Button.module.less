@@ -17,14 +17,6 @@
 		letter-spacing: @my-theme-button-letter-spacing;
 		text-indent: @my-theme-button-letter-spacing;  // Keep the text centered
 
-		&.minWidth {
-			padding: 0;
-
-			.client .icon {
-				margin: 0;
-			}
-		}
-
 		.bg {
 			background-color: @my-theme-button-bg-color;
 			background-image: @my-theme-button-bg-image;
@@ -45,6 +37,14 @@
 			}
 		}
 
+		&.minWidth {
+			padding: 0;
+
+			.client .icon {
+				margin: 0;
+			}
+		}
+
 		&.small {
 			font-size: @my-theme-button-small-font-size;
 			font-weight: @my-theme-button-small-font-weight;
@@ -54,26 +54,6 @@
 			line-height: (@my-theme-button-small-height - (2 * @my-theme-button-border-width));
 			margin: @my-theme-button-small-margin;
 			padding: @my-theme-button-small-padding;
-		}
-
-		// Button-non-disabled rules
-		&:not([disabled]) {
-			.focus({
-				&.pressed,
-				&:active {
-					.bg {
-						background-color: @my-theme-button-active-bg-color;
-						background-image: @my-theme-button-active-bg-image;
-						transform: @my-theme-button-pressed-transform;
-					}
-
-					&,
-					.client {
-						color: @my-theme-button-active-text-color;
-					}
-				}
-			});
-
 		}
 
 		&.selected {
@@ -86,13 +66,8 @@
 				color: @my-theme-button-selected-text-color;
 			}
 		}
-	});
 
-	// TODO: Replace with an updated .focus() mixin that can apply rules both when focused and
-	// within a focused node
-	&:global(.spottable):focus,
-	:global(.spottable):focus & {
-		.applySkins({
+		.focus({
 			background-color: transparent;
 			background-image: none;
 
@@ -105,6 +80,20 @@
 			.client {
 				color: @my-theme-button-focus-text-color;
 			}
+
+			&.pressed,
+			&:active {
+				.bg {
+					background-color: @my-theme-button-active-bg-color;
+					background-image: @my-theme-button-active-bg-image;
+					transform: @my-theme-button-pressed-transform;
+				}
+
+				&,
+				.client {
+					color: @my-theme-button-active-text-color;
+				}
+			}
 		});
-	}
+	});
 }
