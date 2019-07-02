@@ -43,9 +43,10 @@ const defaultConfig = {
  * [internationalization support]{@link i18n/I18nDecorator.I18nDecorator}. It is meant to be applied to
  * the root element of an app.
  *
- * [Skins]{@link ui/Skinnable} provide a way to change the coloration of your app. The currently
- * supported skins for MyTheme are "zircon" (the default, dark skin) and "zircon-light".
- * Use the `skin` property to assign a skin. Ex: `<DecoratedApp skin="light" />`
+ * [Skins]{@link ui/Skinnable} provide a way to change the coloration of your app. Only one skin
+ * ("my-skin") is included with this theme. It is currently set as the default so you don't need to
+ * set anything yet. Use the `skin` property to assign a skin when or if you add more.
+ * Ex: `<DecoratedApp skin="light" />`
  *
  * @class ThemeDecorator
  * @memberof my-theme/ThemeDecorator

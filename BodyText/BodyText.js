@@ -38,17 +38,6 @@ const BodyTextBase = kind({
 
 	propTypes: /** @lends my-theme/BodyText.BodyTextBase.prototype */ {
 		/**
-		 * Centers the contents.
-		 *
-		 * Applies the `centered` CSS class which can be customized by
-		 * [theming]{@link /docs/developer-guide/theming/}.
-		 *
-		 * @type {Boolean}
-		 * @public
-		 */
-		centered: PropTypes.bool,
-
-		/**
 		 * Customizes the component by mapping the supplied collection of CSS class names to the
 		 * corresponding internal Elements and states of this component.
 		 *
@@ -67,12 +56,11 @@ const BodyTextBase = kind({
 		publicClassNames: 'bodyText'
 	},
 
-	render: ({centered, css, ...rest}) => {
+	render: ({css, ...rest}) => {
 
 		return (
 			<UiBodyText
 				{...rest}
-				centered={centered}
 				css={css}
 			/>
 		);
