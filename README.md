@@ -79,8 +79,19 @@ It can be helpful to look at other Enact modules' ([`@enact/agate`](https://gith
 
 The `styles/skin.less` file sets up the named skins with their respective variables and color values.
 
-First, add a new entry to `skin.less` with a new skin name, such as `neutron`.
+First, add the skin name, such as `neutron`, to `Skinnable/Skinnable.js`.
+```javascript
+...
+const defaultConfig = {
+	skins: {
+		'proton': 'proton',
+		'neutron': 'neutron'
+	}
+};
+...
+``` 
 
+Then, add a new entry to `skin.less` with the new skin name.
 ```less
 // skin.less
 //
@@ -105,6 +116,7 @@ First, add a new entry to `skin.less` with a new skin name, such as `neutron`.
 	}
 }
 ```
+
 Next, create the `variables-neutron.less` and `colors-neutron.less` files and populate them with the variables and colors for the new skin.
 
 Finally, give your app a `skin` prop (`"proton"` or `"neutron"`) and wrap it in your `ThemeDecorator`.  If you don't supply the `skin` prop, it will use a default value of `"proton"` or whatever was specified when renaming the skin.
