@@ -11,7 +11,6 @@
 
 import Spottable from '@enact/spotlight/Spottable';
 import {ItemBase as UiItemBase, ItemDecorator as UiItemDecorator} from '@enact/ui/Item';
-import Pure from '@enact/ui/internal/Pure';
 import compose from 'ramda/src/compose';
 import React from 'react';
 
@@ -45,7 +44,6 @@ const ItemBase = (props) => (
  * @public
  */
 const ItemDecorator = compose(
-	Pure,
 	UiItemDecorator,
 	Spottable,
 	Skinnable

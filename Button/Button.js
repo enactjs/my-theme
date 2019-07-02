@@ -13,17 +13,13 @@
 import kind from '@enact/core/kind';
 import Spottable from '@enact/spotlight/Spottable';
 import {ButtonBase as UiButtonBase, ButtonDecorator as UiButtonDecorator} from '@enact/ui/Button';
-import Pure from '@enact/ui/internal/Pure';
 import PropTypes from 'prop-types';
 import compose from 'ramda/src/compose';
 
-import {IconBase} from '../Icon';
+import Icon from '../Icon';
 import Skinnable from '../Skinnable';
 
 import componentCss from './Button.module.less';
-
-// Make a basic Icon in case we need it later. This cuts `Pure` out of icon for a small gain.
-const Icon = Skinnable(IconBase);
 
 /**
  * A button component.
@@ -91,20 +87,6 @@ const ButtonBase = kind({
 });
 
 /**
- * Enforces a minimum width on the Button.
- *
- * *NOTE*: This property's default is `true` and must be explicitly set to `false` to allow
- * the button to shrink to fit its contents.
- *
- * @name minWidth
- * @memberof my-theme/Button.ButtonBase.prototype
- * @type {Boolean}
- * @default true
- * @public
- */
-
-
-/**
  * Applies MyTheme specific behaviors to [Button]{@link my-theme/Button.ButtonBase} components.
  *
  * @hoc
@@ -115,7 +97,6 @@ const ButtonBase = kind({
  * @public
  */
 const ButtonDecorator = compose(
-	Pure,
 	UiButtonDecorator,
 	Spottable,
 	Skinnable

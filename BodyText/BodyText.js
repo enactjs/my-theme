@@ -15,7 +15,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import compose from 'ramda/src/compose';
 import UiBodyText from '@enact/ui/BodyText';
-import Pure from '@enact/ui/internal/Pure';
 
 import Skinnable from '../Skinnable';
 
@@ -76,7 +75,6 @@ const BodyTextBase = kind({
  * @public
  */
 const BodyTextDecorator = compose(
-	Pure,
 	Skinnable
 );
 

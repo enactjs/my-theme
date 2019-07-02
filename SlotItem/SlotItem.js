@@ -22,7 +22,6 @@
 
 import kind from '@enact/core/kind';
 import Spottable from '@enact/spotlight/Spottable';
-import Pure from '@enact/ui/internal/Pure';
 import {SlotItemBase as UiSlotItemBase, SlotItemDecorator as UiSlotItemDecorator} from '@enact/ui/SlotItem';
 import {ItemDecorator as UiItemDecorator} from '@enact/ui/Item';
 import PropTypes from 'prop-types';
@@ -95,7 +94,6 @@ const SlotItemBase = kind({
  */
 const SlotItemDecorator = compose(
 	UiSlotItemDecorator,
-	Pure,
 	UiItemDecorator, // (Touchable)
 	Spottable,
 	Skinnable
