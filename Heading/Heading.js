@@ -13,7 +13,6 @@
  */
 
 import kind from '@enact/core/kind';
-import Pure from '@enact/ui/internal/Pure';
 import PropTypes from 'prop-types';
 import compose from 'ramda/src/compose';
 import UiHeading from '@enact/ui/Heading';
@@ -72,7 +71,6 @@ const HeadingBase = kind({
  * @public
  */
 const HeadingDecorator = compose(
-	Pure,
 	Skinnable
 );
 

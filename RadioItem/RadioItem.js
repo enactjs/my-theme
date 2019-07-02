@@ -58,7 +58,7 @@ const RadioItemBase = kind({
 			{...props}
 			css={props.css}
 			iconComponent={
-				<ToggleIcon css={props.css}>play</ToggleIcon>
+				<ToggleIcon css={props.css} />
 			}
 		/>
 	)

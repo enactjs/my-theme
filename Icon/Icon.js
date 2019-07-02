@@ -13,7 +13,6 @@
 
 import kind from '@enact/core/kind';
 import UiIcon from '@enact/ui/Icon';
-import Pure from '@enact/ui/internal/Pure';
 import compose from 'ramda/src/compose';
 import PropTypes from 'prop-types';
 
@@ -159,7 +158,6 @@ const IconBase = kind({
  * @public
  */
 const IconDecorator = compose(
-	Pure,
 	Skinnable
 );
 
@@ -174,7 +172,6 @@ const IconDecorator = compose(
  * @public
  */
 const Icon = IconDecorator(IconBase);
-
 
 export default Icon;
 export {

@@ -21,7 +21,6 @@
 
 import kind from '@enact/core/kind';
 import EnactPropTypes from '@enact/core/internal/prop-types';
-import Pure from '@enact/ui/internal/Pure';
 import React from 'react';
 import PropTypes from 'prop-types';
 import {ToggleItemBase as UiToggleItem, ToggleItemDecorator as UiToggleItemDecorator} from '@enact/ui/ToggleItem';
@@ -121,7 +120,6 @@ const ToggleItemBase = kind({
  * @public
  */
 const ToggleItemDecorator = compose(
-	Pure,
 	UiToggleItemDecorator,
 	Spottable,
 	Skinnable
