@@ -10,7 +10,6 @@
 @my-theme-base-font-weight: 400;
 @my-theme-base-font-ligatures: none;
 @my-theme-base-letter-spacing: normal;
-@my-theme-icon-font-family: "Moonstone Icons";
 @my-theme-component-spacing: 12px;
 @my-theme-header-line-height: 1.3em;
 
@@ -55,9 +54,9 @@
 // Icon Sizes
 // ---------------------------------------
 @my-theme-icon-size: 48px;
-@my-theme-icon-font-size: (@my-theme-icon-size * 2);
+@my-theme-icon-font-size: @my-theme-icon-size;
 @my-theme-icon-small-size: 24px;
-@my-theme-icon-small-font-size: (@my-theme-icon-small-size * 2);
+@my-theme-icon-small-font-size: @my-theme-icon-small-size;
 @my-theme-icon-button-size: @my-theme-button-height;
 @my-theme-icon-sprite-size: (@my-theme-icon-button-size - (@my-theme-button-border-width * 2));
 @my-theme-icon-margin: @my-theme-component-spacing;
