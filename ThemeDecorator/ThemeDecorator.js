@@ -5,7 +5,7 @@
  */
 
 import {addAll} from '@enact/core/keymap';
-import classnames from 'classnames';
+import kind from '@enact/core/kind';
 import hoc from '@enact/core/hoc';
 import React from 'react';
 import {ResolutionDecorator} from '@enact/ui/resolution';
@@ -38,7 +38,6 @@ const defaultConfig = {
  * MyTheme theming to an application. It also applies
  * [floating layer]{@link ui/FloatingLayer.FloatingLayerDecorator},
  * [resolution independence]{@link ui/resolution.ResolutionDecorator},
- * [custom text sizing]{@link my-theme/ThemeDecorator.TextSizeDecorator},
  * [skin support]{@link ui/Skinnable}, [spotlight]{@link spotlight.SpotlightRootDecorator}, and
  * [internationalization support]{@link i18n/I18nDecorator.I18nDecorator}. It is meant to be applied to
  * the root element of an app.
@@ -71,24 +70,19 @@ const ThemeDecorator = hoc(defaultConfig, (config, Wrapped) => {
 		pointerShow: 1536
 	});
 
-	const Decorator = class extends React.Component {
-		static displayName = 'ThemeDecorator';
-
-		render () {
-			const allClassNames = classnames(
-				this.props.className,
-				'enact-unselectable',
-				bgClassName,
-				css.root
-			);
-
-			return (
-				<App {...this.props} className={allClassNames} />
-			);
-		}
-	};
-
-	return Decorator;
+	return kind({
+		name: 'ThemeDecorator',
+		styles: {
+			css,
+			className: 'root enact-unselectable'
+		},
+		computed: {
+			className: ({styler}) => styler.append(bgClassName)
+		},
+		render: (props) => (
+			<App {...props} />
+		)
+	});
 });
 
 export default ThemeDecorator;
