@@ -1,5 +1,4 @@
 import {Cell, Column} from '@enact/ui/Layout';
-import {forward, handle} from '@enact/core/handle';
 import kind from '@enact/core/kind';
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -26,6 +25,21 @@ const PanelBase = kind({
 
 	propTypes: /** @lends my-theme/Panels.Panel.prototype */ {
 		/**
+		 * Customizes the component by mapping the supplied collection of CSS class names to the
+		 * corresponding internal Elements and states of this component.
+		 *
+		 * The following classes are supported:
+		 *
+		 * * `panel` - The root class name
+		 * * `header` - Applied to the header block of the panel
+		 * * `body` - Applied to the body block of the panel
+		 *
+		 * @type {Object}
+		 * @public
+		 */
+		css: PropTypes.object,
+
+		/**
 		 * Header for the panel.
 		 *
 		 * This can also be passed by the [Slottable]{@link ui/Slottable.Slottable} API by using a
@@ -41,16 +55,6 @@ const PanelBase = kind({
 		css: componentCss,
 		className: 'panel',
 		publicClassNames: true
-	},
-
-	handlers: {
-		onScroll: handle(
-			forward('onScroll'),
-			({currentTarget}) => {
-				currentTarget.scrollTop = 0;
-				currentTarget.scrollLeft = 0;
-			}
-		)
 	},
 
 	computed: {
