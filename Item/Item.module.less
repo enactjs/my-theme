@@ -10,6 +10,10 @@
 		/* Available for override customization */
 	}
 
+	&.inline {
+		max-width: 240px;
+	}
+
 	.applySkins({
 		.my-theme-item-sizing();
 
@@ -17,10 +21,6 @@
 		color: @my-theme-item-text-color;
 		background-color: @my-theme-item-bg-color;
 		text-shadow: @my-theme-item-text-shadow;
-
-		&.inline {
-			max-width: 240px;
-		}
 
 		.focus({
 			color: @my-theme-item-focus-text-color;

@@ -5,6 +5,17 @@
 
 // Internally theme our implementation using published classes from ToggleItem and ToggleIcon
 .toggleIcon {
+	.icon {
+		visibility: hidden;
+		margin: 0;
+	}
+
+	&.selected {
+		.icon {
+			visibility: visible;
+		}
+	}
+
 	.applySkins({
 		@size: @my-theme-checkbox-size;
 
@@ -15,18 +26,10 @@
 		border-radius: @my-theme-checkbox-border-radius;
 
 		.icon {
-			visibility: hidden;
-			margin: 0;
 			line-height: @size;
 			width: @size;
 			height: @size;
 			font-size: @size;
-		}
-
-		&.selected {
-			.icon {
-				visibility: visible;
-			}
 		}
 	});
 }

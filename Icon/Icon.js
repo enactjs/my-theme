@@ -55,7 +55,7 @@ const IconBase = kind({
 
 	styles: {
 		css: componentCss,
-		className: 'material-icons material-icons-round'
+		className: 'material-icons-round'
 	},
 
 	render: (props) => (

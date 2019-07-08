@@ -63,8 +63,6 @@
 });
 
 .root {
-	font-style: normal;
-	letter-spacing: normal;
 	overflow: hidden;
 
 	&:global(.enact-locale-right-to-left) {
@@ -76,7 +74,9 @@
 		font-family: @my-theme-base-font-family;
 		font-weight: @my-theme-base-font-weight;
 		font-size: @my-theme-base-font-size;
+		font-style: @my-theme-base-font-style;
 		font-variant-ligatures: @my-theme-base-font-ligatures;
+		letter-spacing: @my-theme-base-letter-spacing;
 		color: @my-theme-text-color;
 		background-color: @my-theme-bg-color;
 		background-image: @my-theme-bg-image;

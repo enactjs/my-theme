@@ -10,6 +10,8 @@ import UiSkinnable from '@enact/ui/Skinnable';
 
 const defaultConfig = {
 	skins: {
+		// Name of the skin, referred to in the `skin`` prop : skin className (in CSS)
+		// These can be different strings, they just happen to be the same in this case.
 		'my-skin': 'my-skin'
 	}
 };
