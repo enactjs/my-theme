@@ -13,6 +13,7 @@
 import kind from '@enact/core/kind';
 import Spottable from '@enact/spotlight/Spottable';
 import {ButtonBase as UiButtonBase, ButtonDecorator as UiButtonDecorator} from '@enact/ui/Button';
+import React from 'react';
 import PropTypes from 'prop-types';
 import compose from 'ramda/src/compose';
 
@@ -77,12 +78,12 @@ const ButtonBase = kind({
 	render: ({css, ...rest}) => {
 		delete rest.selected;
 
-		return UiButtonBase.inline({
-			'data-webos-voice-intent': 'Select',
-			...rest,
-			css,
-			iconComponent: Icon
-		});
+		return (<UiButtonBase
+			data-webos-voice-intent="Select"
+			{...rest}
+			css={css}
+			iconComponent={Icon}
+		/>);
 	}
 });
 

@@ -13,6 +13,7 @@
  */
 
 import kind from '@enact/core/kind';
+import React from 'react';
 import PropTypes from 'prop-types';
 import compose from 'ramda/src/compose';
 import UiHeading from '@enact/ui/Heading';
@@ -58,7 +59,10 @@ const HeadingBase = kind({
 
 	render: ({css, ...rest}) => {
 		delete rest.showLine;
-		return UiHeading.inline({css, ...rest});
+		return (<UiHeading
+			{...rest}
+			css={css}
+		/>);
 	}
 });
 
