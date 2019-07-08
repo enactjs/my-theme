@@ -60,6 +60,9 @@ const ButtonBase = kind({
 		 * @type {Boolean}
 		 * @public
 		 */
+		// This demonstrates how a Boolean prop can be easily converted into a classname.
+		// True applies the class, false doesn't. This lets you manage a visual state purely in the
+		// styling code.
 		selected: PropTypes.bool
 	},
 
