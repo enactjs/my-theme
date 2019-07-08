@@ -54,7 +54,7 @@ const IconBase = kind({
 
 	styles: {
 		css: componentCss,
-		className: 'material-icons'
+		className: 'material-icons material-icons-round'
 	},
 
 	render: (props) => UiIcon.inline({
