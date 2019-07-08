@@ -81,12 +81,13 @@ const ButtonBase = kind({
 	render: ({css, ...rest}) => {
 		delete rest.selected;
 
-		return (<UiButtonBase
-			data-webos-voice-intent="Select"
-			{...rest}
-			css={css}
-			iconComponent={Icon}
-		/>);
+		return (
+			<UiButtonBase
+				{...rest}
+				css={css}
+				iconComponent={Icon}
+			/>
+		);
 	}
 });
 

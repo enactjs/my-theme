@@ -67,11 +67,10 @@ const CheckboxItemBase = kind({
 		publicClassNames: ['checkboxItem']
 	},
 
-	render: (props) => (
+	render: ({css, ...rest}) => (
 		<ToggleItem
-			data-webos-voice-intent="SelectCheckItem"
-			{...props}
-			css={props.css}
+			{...rest}
+			css={css}
 			iconComponent={Checkbox}
 		/>
 	)
