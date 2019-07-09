@@ -1,0 +1,41 @@
+{
+  "name": "@enact/my-theme",
+  "version": "1.0.0-alpha.0",
+  "description": "A theme library for Enact, containing a variety of UI components.",
+  "repository": "https://github.com/enactjs/my-theme",
+  "main": "index.js",
+  "scripts": {
+    "clean": "enact clean",
+    "lint": "enact lint --framework",
+    "test": "enact test start --single-run --browsers PhantomJS",
+    "test-json": "enact test start --single-run --browsers PhantomJS --reporters json",
+    "test-watch": "enact test start --browsers PhantomJS",
+    "transpile": "enact transpile"
+  },
+  "license": "Apache-2.0",
+  "keywords": [
+    "framework",
+    "toolkit",
+    "components",
+    "mobile",
+    "webOS"
+  ],
+  "enact": {
+    "ri": {
+      "baseSize": 24
+    }
+  },
+  "eslintConfig": {
+    "extends": "enact/strict"
+  },
+  "dependencies": {
+    "@enact/core": "next",
+    "@enact/i18n": "next",
+    "@enact/spotlight": "next",
+    "@enact/ui": "next",
+    "classnames": "^2.2.6",
+    "prop-types": "^15.6.2",
+    "ramda": "^0.25.0",
+    "react": "^16.0.0"
+  }
+}
