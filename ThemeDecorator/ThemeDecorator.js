@@ -7,6 +7,7 @@
 import {addAll} from '@enact/core/keymap';
 import classnames from 'classnames';
 import hoc from '@enact/core/hoc';
+import I18nDecorator from '@enact/i18n/I18nDecorator';
 import React from 'react';
 import {ResolutionDecorator} from '@enact/ui/resolution';
 import {FloatingLayerDecorator} from '@enact/ui/FloatingLayer';
@@ -25,6 +26,7 @@ import css from './ThemeDecorator.module.less';
  */
 const defaultConfig = {
 	float: true,
+	i18n: true,
 	noAutoFocus: false,
 	ri: {
 		screenTypes
@@ -54,13 +56,14 @@ const defaultConfig = {
  * @public
  */
 const ThemeDecorator = hoc(defaultConfig, (config, Wrapped) => {
-	const {float, noAutoFocus, ri, skin, spotlight} = config;
+	const {float, i18n, noAutoFocus, ri, skin, spotlight} = config;
 
 	const bgClassName = 'enact-fit';
 
 	let App = Wrapped;
 	if (float) App = FloatingLayerDecorator({wrappedClassName: bgClassName}, App);
 	if (ri) App = ResolutionDecorator(ri, App);
+	if (i18n) App = I18nDecorator(App);
 	if (spotlight) App = SpotlightRootDecorator({noAutoFocus}, App);
 	if (skin) App = Skinnable({defaultSkin: 'my-skin'}, App);
 

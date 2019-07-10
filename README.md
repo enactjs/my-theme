@@ -28,6 +28,7 @@ Most of the components in the starter theme are built from base components provi
 
 The Enact framework has several modules that provide various behaviors.  The starter theme applies the following behaviors to the wrapped app by default:
 
+* Internationalization/localization - uses the [iLib](http://github.com/iLib-js/iLib) library to provide localized rendering
 * Resolution independence - makes sure components are the same size (relative or not) on different screen resolutions
 * Spotlight - spatial navigation with pointer or other input devices
 
