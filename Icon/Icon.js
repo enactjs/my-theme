@@ -13,8 +13,9 @@
 
 import kind from '@enact/core/kind';
 import UiIcon from '@enact/ui/Icon';
-import compose from 'ramda/src/compose';
+import React from 'react';
 import PropTypes from 'prop-types';
+import compose from 'ramda/src/compose';
 
 import Skinnable from '../Skinnable';
 
@@ -54,13 +55,15 @@ const IconBase = kind({
 
 	styles: {
 		css: componentCss,
-		className: 'material-icons'
+		className: 'material-icons-round'
 	},
 
-	render: (props) => UiIcon.inline({
-		...props,
-		css: props.css
-	})
+	render: (props) => (
+		<UiIcon
+			{...props}
+			css={props.css}
+		/>
+	)
 });
 
 /**

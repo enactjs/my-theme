@@ -5,11 +5,13 @@
 
 // Font Properties
 // ---------------------------------------
-@my-theme-base-font-family: "Source Sans Pro";
+@my-theme-base-font-family: "Work Sans";
 @my-theme-base-font-size: 24px;
-@my-theme-base-font-weight: 400;
+@my-theme-base-font-weight: 300;
+@my-theme-base-font-style: normal;
 @my-theme-base-font-ligatures: none;
 @my-theme-base-letter-spacing: normal;
+@my-theme-base-alt-font-family: "Source Sans Pro";
 @my-theme-component-spacing: 12px;
 @my-theme-header-line-height: 1.3em;
 
@@ -22,7 +24,7 @@
 // ---------------------------------------
 @my-theme-button-height: 84px;
 @my-theme-button-font-size: 36px;
-@my-theme-button-font-weight: @my-theme-base-font-weight;
+@my-theme-button-font-weight: 400;
 @my-theme-button-letter-spacing: @my-theme-base-letter-spacing;
 @my-theme-button-border-style: solid;
 @my-theme-button-border-width: 1px;
@@ -47,6 +49,8 @@
 
 // Heading
 // ---------------------------------------
+@my-theme-heading-font-family: @my-theme-base-alt-font-family;
+@my-theme-heading-font-weight: 900;
 @my-theme-heading-border-width: 1px;
 @my-theme-heading-letter-spacing: @my-theme-base-letter-spacing;
 @my-theme-heading-line-height: @my-theme-header-line-height;
@@ -64,7 +68,7 @@
 // Item
 // ---------------------------------------
 @my-theme-item-font-size: 30px;
-@my-theme-item-font-weight: 300;
+@my-theme-item-font-weight: 400;
 @my-theme-item-label-font-size: @my-theme-base-font-size;
 @my-theme-item-height: 24px;
 @my-theme-item-side-outset: @my-theme-component-spacing;

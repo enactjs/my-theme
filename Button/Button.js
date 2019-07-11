@@ -13,6 +13,7 @@
 import kind from '@enact/core/kind';
 import Spottable from '@enact/spotlight/Spottable';
 import {ButtonBase as UiButtonBase, ButtonDecorator as UiButtonDecorator} from '@enact/ui/Button';
+import React from 'react';
 import PropTypes from 'prop-types';
 import compose from 'ramda/src/compose';
 
@@ -59,6 +60,9 @@ const ButtonBase = kind({
 		 * @type {Boolean}
 		 * @public
 		 */
+		// This demonstrates how a Boolean prop can be easily converted into a classname.
+		// True applies the class, false doesn't. This lets you manage a visual state purely in the
+		// styling code.
 		selected: PropTypes.bool
 	},
 
@@ -77,12 +81,13 @@ const ButtonBase = kind({
 	render: ({css, ...rest}) => {
 		delete rest.selected;
 
-		return UiButtonBase.inline({
-			'data-webos-voice-intent': 'Select',
-			...rest,
-			css,
-			iconComponent: Icon
-		});
+		return (
+			<UiButtonBase
+				{...rest}
+				css={css}
+				iconComponent={Icon}
+			/>
+		);
 	}
 });
 
