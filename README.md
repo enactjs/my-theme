@@ -56,9 +56,9 @@ git clone https://github.com/enactjs/my-theme.git uranium
 
 ### Rename
 
-Globally replace instances of `my-theme` with the package name of your theme and instances of `MyTheme` with the name of your theme.
+Globally replace instances of `my-theme` with the package name of your theme, instances of `MyTheme` with the name of your theme, and instances of `ILIB_MY_THEME_PATH`.
 
-Following the "uranium" example, use `uranium` and `Uranium`, respectively.
+Following the "uranium" example, use `uranium` and `Uranium`, and `ILIB_URANIUM_PATH` respectively.
 
 Theme developers may also want to change the name of the default skin as part of the rename process.  Globally replace `my-skin` with something else, such as `proton`, and update the `variables-my-skin.less` and `colors-my-skin.less` file names as appropriate.
 
