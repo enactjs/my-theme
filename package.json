@@ -37,5 +37,11 @@
     "prop-types": "^15.6.2",
     "ramda": "^0.25.0",
     "react": "^16.0.0"
+  },
+  "peerDependencies": {
+    "ilib": "^14.2.0"
+  },
+  "devDependencies": {
+    "ilib": "^14.2.0"
   }
 }

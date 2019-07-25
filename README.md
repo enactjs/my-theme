@@ -24,10 +24,13 @@ Most of the components in the starter theme are built from base components provi
 * `ToggleIcon` - an `Icon` with `ui/Toggleable` behavior
 * `ToggleItem` - an `Item` with `ui/Toggleable` behavior
 
+There is also an internal implementation for `$L` (an `ilib` translation module) that can be used by theme components to provide translations.
+
 ### Behaviors
 
 The Enact framework has several modules that provide various behaviors.  The starter theme applies the following behaviors to the wrapped app by default:
 
+* Internationalization/localization - uses the [iLib](http://github.com/iLib-js/iLib) library to provide localized rendering
 * Resolution independence - makes sure components are the same size (relative or not) on different screen resolutions
 * Spotlight - spatial navigation with pointer or other input devices
 
@@ -55,9 +58,9 @@ git clone https://github.com/enactjs/my-theme.git uranium
 
 ### Rename
 
-Globally replace instances of `my-theme` with the package name of your theme and instances of `MyTheme` with the name of your theme.
+Globally replace instances of `my-theme` with the package name of your theme, instances of `MyTheme` with the name of your theme, and instances of `ILIB_MY_THEME_PATH`.
 
-Following the "uranium" example, use `uranium` and `Uranium`, respectively.
+Following the "uranium" example, use `uranium` and `Uranium`, and `ILIB_URANIUM_PATH` respectively.
 
 Theme developers may also want to change the name of the default skin as part of the rename process.  Globally replace `my-skin` with something else, such as `proton`, and update the `variables-my-skin.less` and `colors-my-skin.less` file names as appropriate.
 
