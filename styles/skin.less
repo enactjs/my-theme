@@ -22,4 +22,12 @@
 
 		@componentRules();
 	}
+
+	&:global(.mykitchen) {
+		// Load the myroom rules into this scope
+		@import "./colors-mykitchen.less";
+		@import "./variables-mykitchen.less";
+
+		@componentRules();
+	}
 }
