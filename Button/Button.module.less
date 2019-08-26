@@ -6,31 +6,31 @@
 
 .button {
 	.applySkins({
-		height: @my-theme-button-height;
-		min-width: @my-theme-button-height;
-		padding: @my-theme-button-padding;
-		margin: @my-theme-button-margin;
+		height: @myhouse-button-height;
+		min-width: @myhouse-button-height;
+		padding: @myhouse-button-padding;
+		margin: @myhouse-button-margin;
 		box-sizing: border-box;
 		vertical-align: middle;
-		font-size: @my-theme-button-font-size;
-		font-weight: @my-theme-button-font-weight;
-		letter-spacing: @my-theme-button-letter-spacing;
-		text-indent: @my-theme-button-letter-spacing;  // Keep the text centered
+		font-size: @myhouse-button-font-size;
+		font-weight: @myhouse-button-font-weight;
+		letter-spacing: @myhouse-button-letter-spacing;
+		text-indent: @myhouse-button-letter-spacing;  // Keep the text centered
 
 		.bg {
-			background-color: @my-theme-button-bg-color;
-			background-image: @my-theme-button-bg-image;
-			border-color: @my-theme-button-border-color;
-			border-style: @my-theme-button-border-style;
-			border-width: @my-theme-button-border-width;
-			border-radius: @my-theme-button-border-radius;
-			transition: @my-theme-button-bg-transition;
+			background-color: @myhouse-button-bg-color;
+			background-image: @myhouse-button-bg-image;
+			border-color: @myhouse-button-border-color;
+			border-style: @myhouse-button-border-style;
+			border-width: @myhouse-button-border-width;
+			border-radius: @myhouse-button-border-radius;
+			transition: @myhouse-button-bg-transition;
 		}
 
 		.client {
-			padding: @my-theme-button-border-width;	// We match the amount removed by the line-height above, so the text doesn't overlap the border
-			color: @my-theme-button-text-color;
-			text-shadow: @my-theme-button-text-shadow;
+			padding: @myhouse-button-border-width;	// We match the amount removed by the line-height above, so the text doesn't overlap the border
+			color: @myhouse-button-text-color;
+			text-shadow: @myhouse-button-text-shadow;
 
 			.icon {
 				-webkit-margin-start: 0;
@@ -46,24 +46,24 @@
 		}
 
 		&.small {
-			font-size: @my-theme-button-small-font-size;
-			font-weight: @my-theme-button-small-font-weight;
-			letter-spacing: @my-theme-button-small-letter-spacing;
-			height: @my-theme-button-small-height;
-			min-width: @my-theme-button-small-height;
-			line-height: (@my-theme-button-small-height - (2 * @my-theme-button-border-width));
-			margin: @my-theme-button-small-margin;
-			padding: @my-theme-button-small-padding;
+			font-size: @myhouse-button-small-font-size;
+			font-weight: @myhouse-button-small-font-weight;
+			letter-spacing: @myhouse-button-small-letter-spacing;
+			height: @myhouse-button-small-height;
+			min-width: @myhouse-button-small-height;
+			line-height: (@myhouse-button-small-height - (2 * @myhouse-button-border-width));
+			margin: @myhouse-button-small-margin;
+			padding: @myhouse-button-small-padding;
 		}
 
 		&.selected {
 			.bg {
-				background-color: @my-theme-button-selected-bg-color;
+				background-color: @myhouse-button-selected-bg-color;
 			}
 
 			&,
 			.client {
-				color: @my-theme-button-selected-text-color;
+				color: @myhouse-button-selected-text-color;
 			}
 		}
 
@@ -72,26 +72,26 @@
 			background-image: none;
 
 			.bg {
-				background-color: @my-theme-button-focus-bg-color;
-				background-image: @my-theme-button-focus-bg-image;
+				background-color: @myhouse-button-focus-bg-color;
+				background-image: @myhouse-button-focus-bg-image;
 			}
 
 			&,
 			.client {
-				color: @my-theme-button-focus-text-color;
+				color: @myhouse-button-focus-text-color;
 			}
 
 			&.pressed,
 			&:active {
 				.bg {
-					background-color: @my-theme-button-active-bg-color;
-					background-image: @my-theme-button-active-bg-image;
-					transform: @my-theme-button-pressed-transform;
+					background-color: @myhouse-button-active-bg-color;
+					background-image: @myhouse-button-active-bg-image;
+					transform: @myhouse-button-pressed-transform;
 				}
 
 				&,
 				.client {
-					color: @my-theme-button-active-text-color;
+					color: @myhouse-button-active-text-color;
 				}
 			}
 		});

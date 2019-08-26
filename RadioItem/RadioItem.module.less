@@ -14,13 +14,13 @@
 	// Skin colors
 	.applySkins({
 		.icon {
-			width: @my-theme-radioitem-icon-size;
-			height: @my-theme-radioitem-icon-size;
+			width: @myhouse-radioitem-icon-size;
+			height: @myhouse-radioitem-icon-size;
 			border-radius: 96px;
 			flex-shrink: 0;
 			margin-right: 0;
 			margin-left: 0;
-			box-shadow: inset 0 0 0 @my-theme-radioitem-icon-border-width;
+			box-shadow: inset 0 0 0 @myhouse-radioitem-icon-border-width;
 
 			&::before {
 				content: "";
@@ -29,22 +29,22 @@
 				border-radius: inherit;
 			}
 
-			border-color: @my-theme-radioitem-icon-border-color;
+			border-color: @myhouse-radioitem-icon-border-color;
 			border-style: solid;
-			border-width: @my-theme-radioitem-icon-border-width;
-			background-color: @my-theme-radioitem-icon-bg-color;
-			background-image: @my-theme-radioitem-icon-bg-image;
-			border-radius: @my-theme-radioitem-icon-border-radius;
+			border-width: @myhouse-radioitem-icon-border-width;
+			background-color: @myhouse-radioitem-icon-bg-color;
+			background-image: @myhouse-radioitem-icon-bg-image;
+			border-radius: @myhouse-radioitem-icon-border-radius;
 			color: transparent;
 		}
 
 		&.selected {
 			.icon {
-				background-color: @my-theme-radioitem-icon-selected-bg-color;
-				color: @my-theme-radioitem-icon-selected-color;
+				background-color: @myhouse-radioitem-icon-selected-bg-color;
+				color: @myhouse-radioitem-icon-selected-color;
 
 				&::before {
-					background-color: @my-theme-radioitem-icon-selected-color;
+					background-color: @myhouse-radioitem-icon-selected-color;
 				}
 			}
 		}
@@ -56,23 +56,23 @@
 	.toggleIcon {
 		.applySkins({
 			.icon {
-				color: @my-theme-radioitem-icon-focus-color;
-				background-color: @my-theme-radioitem-icon-focus-bg-color;
+				color: @myhouse-radioitem-icon-focus-color;
+				background-color: @myhouse-radioitem-icon-focus-bg-color;
 			}
 
 			&.selected {
 				.icon {
-					color: @my-theme-radioitem-icon-selected-focus-color;
-					background-color: @my-theme-radioitem-icon-selected-focus-bg-color;
+					color: @myhouse-radioitem-icon-selected-focus-color;
+					background-color: @myhouse-radioitem-icon-selected-focus-bg-color;
 
 					&::before {
-						background-color: @my-theme-radioitem-icon-selected-focus-color;
+						background-color: @myhouse-radioitem-icon-selected-focus-color;
 					}
 				}
 			}
 
 			.disabled({
-				opacity: @my-theme-disabled-opacity;
+				opacity: @myhouse-disabled-opacity;
 			})
 		});
 	}

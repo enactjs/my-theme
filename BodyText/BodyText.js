@@ -1,10 +1,10 @@
 /**
- * MyTheme styled text block components and behaviors.
+ * Myhouse styled text block components and behaviors.
  *
  * @example
  * <BodyText centered>Hello Enact!</BodyText>
  *
- * @module my-theme/BodyText
+ * @module myhouse/BodyText
  * @exports BodyText
  * @exports BodyTextBase
  * @exports BodyTextDecorator
@@ -24,10 +24,10 @@ import componentCss from './BodyText.module.less';
  * A simple text block component.
  *
  * This component is most often not used directly but may be composed within another component as it
- * is within [BodyText]{@link my-theme/BodyText.BodyText}.
+ * is within [BodyText]{@link myhouse/BodyText.BodyText}.
  *
  * @class BodyTextBase
- * @memberof my-theme/BodyText
+ * @memberof myhouse/BodyText
  * @extends ui/BodyText.BodyText
  * @ui
  * @public
@@ -35,7 +35,7 @@ import componentCss from './BodyText.module.less';
 const BodyTextBase = kind({
 	name: 'BodyText',
 
-	propTypes: /** @lends my-theme/BodyText.BodyTextBase.prototype */ {
+	propTypes: /** @lends myhouse/BodyText.BodyTextBase.prototype */ {
 		/**
 		 * Customizes the component by mapping the supplied collection of CSS class names to the
 		 * corresponding internal Elements and states of this component.
@@ -67,11 +67,11 @@ const BodyTextBase = kind({
 });
 
 /**
- * Applies MyTheme specific behaviors to [BodyText]{@link my-theme/BodyText.BodyTextBase}.
+ * Applies Myhouse specific behaviors to [BodyText]{@link myhouse/BodyText.BodyTextBase}.
  *
  * @hoc
- * @memberof my-theme/BodyText
- * @mixes my-theme/Skinnable.Skinnable
+ * @memberof myhouse/BodyText
+ * @mixes myhouse/Skinnable.Skinnable
  * @public
  */
 const BodyTextDecorator = compose(
@@ -79,10 +79,10 @@ const BodyTextDecorator = compose(
 );
 
 /**
- * A simple text block component, ready to use in MyTheme applications.
+ * A simple text block component, ready to use in Myhouse applications.
  *
  * `BodyText` may be used to display a block of text and is sized and spaced appropriately for a
- * MyTheme application.
+ * Myhouse application.
  *
  * Usage:
  * ```
@@ -92,9 +92,9 @@ const BodyTextDecorator = compose(
  * ```
  *
  * @class BodyText
- * @memberof my-theme/BodyText
- * @extends my-theme/BodyText.BodyTextBase
- * @mixes my-theme/BodyText.BodyTextDecorator
+ * @memberof myhouse/BodyText
+ * @extends myhouse/BodyText.BodyTextBase
+ * @mixes myhouse/BodyText.BodyTextDecorator
  * @ui
  * @public
  */

@@ -1,10 +1,10 @@
 /**
- * MyTheme styled checkbox components.
+ * Myhouse styled checkbox components.
  *
  * @example
  * <Checkbox onToggle={console.log} />
  *
- * @module my-theme/Checkbox
+ * @module myhouse/Checkbox
  * @exports Checkbox
  * @exports CheckboxBase
  */
@@ -19,10 +19,10 @@ import Icon from '@enact/ui/Icon';
 import css from './Checkbox.module.less';
 
 /**
- * A checkbox component, ready to use in MyTheme applications.
+ * A checkbox component, ready to use in Myhouse applications.
  *
  * `Checkbox` may be used independently to represent a toggleable state but is more commonly used as
- * part of [CheckboxItem]{@link my-theme/CheckboxItem}.
+ * part of [CheckboxItem]{@link myhouse/CheckboxItem}.
  *
  * Usage:
  * ```
@@ -30,19 +30,19 @@ import css from './Checkbox.module.less';
  * ```
  *
  * @class Checkbox
- * @memberof my-theme/Checkbox
- * @extends my-theme/ToggleIcon.ToggleIcon
+ * @memberof myhouse/Checkbox
+ * @extends myhouse/ToggleIcon.ToggleIcon
  * @ui
  * @public
  */
 const CheckboxBase = kind({
 	name: 'Checkbox',
 
-	propTypes: /** @lends my-theme/Checkbox.Checkbox.prototype */ {
+	propTypes: /** @lends myhouse/Checkbox.Checkbox.prototype */ {
 		/**
 		 * The icon displayed when `selected`.
 		 *
-		 * @see my-theme/Icon.Icon.children
+		 * @see myhouse/Icon.Icon.children
 		 * @type {String|Object}
 		 * @default	'check'
 		 * @public

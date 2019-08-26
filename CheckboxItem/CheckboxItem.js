@@ -1,12 +1,12 @@
 /**
- * MyTheme styled item components with a toggleable checkbox.
+ * Myhouse styled item components with a toggleable checkbox.
  *
  * @example
  * <CheckboxItem onToggle={console.log}>
  * 	Item with a Checkbox
  * </CheckboxItem>
  *
- * @module my-theme/CheckboxItem
+ * @module myhouse/CheckboxItem
  * @exports CheckboxItem
  * @exports CheckboxItemBase
  */
@@ -21,7 +21,7 @@ import ToggleItem from '../ToggleItem';
 import componentCss from './CheckboxItem.module.less';
 
 /**
- * An item with a checkbox component, ready to use in my-theme applications.
+ * An item with a checkbox component, ready to use in myhouse applications.
  *
  * `CheckboxItem` may be used to allow the user to select a single option or used as part of a
  * [Group]{@link ui/Group} when multiple [selections]{@link ui/Group.Group.select} are possible.
@@ -37,8 +37,8 @@ import componentCss from './CheckboxItem.module.less';
  * ```
  *
  * @class CheckboxItem
- * @memberof my-theme/CheckboxItem
- * @extends my-theme/ToggleItem.ToggleItem
+ * @memberof myhouse/CheckboxItem
+ * @extends myhouse/ToggleItem.ToggleItem
  * @omit iconComponent
  * @ui
  * @public
@@ -46,7 +46,7 @@ import componentCss from './CheckboxItem.module.less';
 const CheckboxItemBase = kind({
 	name: 'CheckboxItem',
 
-	propTypes: /** @lends my-theme/CheckboxItem.CheckboxItem.prototype */ {
+	propTypes: /** @lends myhouse/CheckboxItem.CheckboxItem.prototype */ {
 		/**
 		 * Customizes the component by mapping the supplied collection of CSS class names to the
 		 * corresponding internal Elements and states of this component.

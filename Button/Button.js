@@ -1,10 +1,10 @@
 /**
- * MyTheme styled button components and behaviors.
+ * Myhouse styled button components and behaviors.
  *
  * @example
  * <Button>Hello Enact!</Button>
  *
- * @module my-theme/Button
+ * @module myhouse/Button
  * @exports Button
  * @exports ButtonBase
  * @exports ButtonDecorator
@@ -26,10 +26,10 @@ import componentCss from './Button.module.less';
  * A button component.
  *
  * This component is most often not used directly but may be composed within another component as it
- * is within [Button]{@link my-theme/Button.Button}.
+ * is within [Button]{@link myhouse/Button.Button}.
  *
  * @class ButtonBase
- * @memberof my-theme/Button
+ * @memberof myhouse/Button
  * @extends ui/Button.ButtonBase
  * @ui
  * @public
@@ -37,7 +37,7 @@ import componentCss from './Button.module.less';
 const ButtonBase = kind({
 	name: 'Button',
 
-	propTypes: /** @lends my-theme/Button.ButtonBase.prototype */ {
+	propTypes: /** @lends myhouse/Button.ButtonBase.prototype */ {
 		/**
 		 * Customizes the component by mapping the supplied collection of CSS class names to the
 		 * corresponding internal Elements and states of this component.
@@ -92,13 +92,13 @@ const ButtonBase = kind({
 });
 
 /**
- * Applies MyTheme specific behaviors to [Button]{@link my-theme/Button.ButtonBase} components.
+ * Applies Myhouse specific behaviors to [Button]{@link myhouse/Button.ButtonBase} components.
  *
  * @hoc
- * @memberof my-theme/Button
+ * @memberof myhouse/Button
  * @mixes ui/Button.ButtonDecorator
  * @mixes spotlight/Spottable.Spottable
- * @mixes my-theme/Skinnable.Skinnable
+ * @mixes myhouse/Skinnable.Skinnable
  * @public
  */
 const ButtonDecorator = compose(
@@ -108,7 +108,7 @@ const ButtonDecorator = compose(
 );
 
 /**
- * A button component, ready to use in MyTheme applications.
+ * A button component, ready to use in Myhouse applications.
  *
  * Usage:
  * ```
@@ -118,9 +118,9 @@ const ButtonDecorator = compose(
  * ```
  *
  * @class Button
- * @memberof my-theme/Button
- * @extends my-theme/Button.ButtonBase
- * @mixes my-theme/Button.ButtonDecorator
+ * @memberof myhouse/Button
+ * @extends myhouse/Button.ButtonBase
+ * @mixes myhouse/Button.ButtonDecorator
  * @ui
  * @public
  */

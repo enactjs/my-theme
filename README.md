@@ -39,27 +39,27 @@ The Enact framework uses [LESS](http://lesscss.org/) to create the styles that a
 
 The way we've defined a "theme" vs. a "skin" is that a theme includes all of the components, behaviors, and collections of skins, while a skin is purely the styling, the appearance of those components.  Think of a theme as the model of a car and the skin as its paint job.
 
-The starter theme comes with one skin (`my-skin`) and the variables and colors for it are found in `variables-my-skin.less` and `colors-my-skin.less`, respectively.
+The starter theme comes with one skin (`myroom`) and the variables and colors for it are found in `variables-myroom.less` and `colors-myroom.less`, respectively.
 
 ## Customizing
 
 ### Copy
 
-The easiest way to get a fresh copy is to clone the [`my-theme` repo](https://github.com/enactjs/my-theme.git).
+The easiest way to get a fresh copy is to clone the [`myhouse` repo](https://github.com/enactjs/myhouse.git).
 
 It is recommended to choose a new name for the theme and use it as the project directory for the copy.
 
 ```
-git clone https://github.com/enactjs/my-theme.git uranium
+git clone https://github.com/enactjs/myhouse.git uranium
 ```
 
 ### Rename
 
-Globally replace instances of `my-theme` with the package name of your theme and instances of `MyTheme` with the name of your theme.
+Globally replace instances of `myhouse` with the package name of your theme and instances of `Myhouse` with the name of your theme.
 
 Following the "uranium" example, use `uranium` and `Uranium`, respectively.
 
-Theme developers may also want to change the name of the default skin as part of the rename process.  Globally replace `my-skin` with something else, such as `proton`, and update the `variables-my-skin.less` and `colors-my-skin.less` file names as appropriate.
+Theme developers may also want to change the name of the default skin as part of the rename process.  Globally replace `myroom` with something else, such as `proton`, and update the `variables-myroom.less` and `colors-myroom.less` file names as appropriate.
 
 ### Add New Functionality
 
@@ -85,7 +85,7 @@ const defaultConfig = {
 	}
 };
 ...
-``` 
+```
 
 Then, add a new entry to `skin.less` with the new skin name.
 ```less

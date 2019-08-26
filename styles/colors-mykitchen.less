@@ -1,0 +1,116 @@
+// Skin colors definitions
+//
+
+// Named Colors
+@myhouse-accent: #48f;
+@myhouse-accent-lighter: lighten(@myhouse-accent, 10%);
+@myhouse-accent-darker: darken(@myhouse-accent, 20%);
+
+@myhouse-highlight: #fc0;
+
+@myhouse-foreground: @myhouse-white;
+@myhouse-background: @myhouse-accent;
+@myhouse-foreground-focus: @myhouse-white;
+@myhouse-background-focus: @myhouse-accent-lighter;
+@myhouse-foreground-active: darken(@myhouse-foreground-focus, 5%);
+@myhouse-background-active: @myhouse-accent-darker;
+
+@myhouse-gradient: linear-gradient(to bottom, fade(white, 40%), transparent);
+@myhouse-text-shadow: 1px 2px 1px rgba(64, 64, 64, 0.5), 0 0 8px rgba(103, 58, 183, 0.5);
+
+@myhouse-darker-gray: #262626;
+@myhouse-dark-gray:   #4d4d4d;
+@myhouse-gray:        #a6a6a6;
+@myhouse-light-gray:  #ededed;
+@myhouse-white:       #fff;
+
+// Component color assignments
+//
+
+// ThemeDecorator
+@myhouse-text-color:        @myhouse-foreground;
+@myhouse-bg-color:          #44a8db;
+@myhouse-bg-image:          linear-gradient(0deg, #0d233c 0%, #454d6f 25%, #897a9c 45%, #562736 46%, #d5524a 48%, #d3a398 60%, #9eb3c4 75%, #54acd7 90%, #44a8db 100%);
+@myhouse-border-color:      @myhouse-accent-darker;
+@myhouse-title-text-color:  @myhouse-white;
+
+// Disabled Opacity
+// ---------------------------------------
+@myhouse-disabled-opacity: 0.6;
+@myhouse-disabled-translucent-opacity: 0.4;
+
+// Spotlight and State
+// ---------------------------------------
+@myhouse-spotlight-text-color:           @myhouse-white;
+@myhouse-spotlight-bg-color:             @myhouse-background-focus;
+@myhouse-spotlight-bg-image:             @myhouse-gradient;
+@myhouse-spotlight-border-color:         transparent;
+@myhouse-spotlight-disabled-text-color:  fade(@myhouse-spotlight-text-color, 40%);
+
+// BodyText
+// ---------------------------------------
+@myhouse-bodytext-text-shadow:  @myhouse-text-shadow;
+
+// Button
+// ---------------------------------------
+@myhouse-button-text-color:           @myhouse-foreground;
+@myhouse-button-bg-color:             @myhouse-background;
+@myhouse-button-bg-image:             @myhouse-gradient;
+@myhouse-button-text-shadow:          @myhouse-text-shadow;
+@myhouse-button-border-color:         @myhouse-border-color;
+@myhouse-button-focus-text-color:     @myhouse-foreground-focus;
+@myhouse-button-focus-bg-color:       @myhouse-background-focus;
+@myhouse-button-focus-bg-image:       @myhouse-button-bg-image;
+@myhouse-button-active-text-color:    @myhouse-foreground-active;
+@myhouse-button-active-bg-color:      @myhouse-background-active;
+@myhouse-button-active-bg-image:      @myhouse-button-bg-image;
+@myhouse-button-selected-text-color:  @myhouse-foreground-active;
+@myhouse-button-selected-bg-color:    @myhouse-background-active;
+@myhouse-button-selected-bg-image:    @myhouse-button-bg-image;
+
+// Checkbox
+// ---------------------------------------
+@myhouse-checkbox-text-color:        @myhouse-white;
+@myhouse-checkbox-bg-color:          fade(@myhouse-white, 22%);
+@myhouse-checkbox-focus-text-color:  @myhouse-spotlight-text-color;
+@myhouse-checkbox-focus-bg-color:    fade(@myhouse-white, 40%);
+
+// Heading
+// ---------------------------------------
+@myhouse-heading-text-color:    @myhouse-text-color;
+@myhouse-heading-text-shadow:   @myhouse-text-shadow;
+@myhouse-heading-border-color:  @myhouse-border-color;
+
+// Icon
+// ---------------------------------------
+@myhouse-icon-color:  @myhouse-text-color;
+
+// Item
+// ---------------------------------------
+@myhouse-item-text-color:        @myhouse-foreground;
+@myhouse-item-bg-color:          transparent;
+@myhouse-item-text-shadow:       @myhouse-text-shadow;
+@myhouse-item-focus-text-color:  @myhouse-spotlight-text-color;
+@myhouse-item-focus-bg-color:    @myhouse-spotlight-bg-color;
+
+// Panels
+// ---------------------------------------
+@myhouse-panels-background-color:  fade(black, 30%);
+
+// RadioItem
+// ---------------------------------------
+@myhouse-radioitem-text-color: @myhouse-item-text-color;
+@myhouse-radioitem-focus-text-color: @myhouse-item-text-color;
+@myhouse-radioitem-separator-border-color: @myhouse-heading-border-color;
+@myhouse-radioitem-icon-border-color: @myhouse-foreground-focus;
+@myhouse-radioitem-icon-bg-color: transparent;
+@myhouse-radioitem-icon-bg-image: linear-gradient(to top, white, transparent);
+@myhouse-radioitem-icon-focus-color: fade(@myhouse-foreground-focus, 50%);
+@myhouse-radioitem-icon-focus-bg-color: @myhouse-radioitem-icon-bg-color;
+@myhouse-radioitem-icon-focus-bg-image: @myhouse-radioitem-icon-bg-image;
+@myhouse-radioitem-icon-selected-color: @myhouse-background-active;
+@myhouse-radioitem-icon-selected-bg-color: @myhouse-radioitem-icon-bg-color;
+@myhouse-radioitem-icon-selected-bg-image: linear-gradient(to bottom, white, transparent);
+@myhouse-radioitem-icon-selected-focus-color: @myhouse-background-active;
+@myhouse-radioitem-icon-selected-focus-bg-color: @myhouse-radioitem-icon-selected-bg-color;
+@myhouse-radioitem-icon-selected-focus-bg-image: @myhouse-radioitem-icon-selected-bg-image;

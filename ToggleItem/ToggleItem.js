@@ -1,10 +1,10 @@
 /**
- * A MyTheme [Item]{@link my-theme/Item} used as the basis for other stylized toggle item
+ * A Myhouse [Item]{@link myhouse/Item} used as the basis for other stylized toggle item
  * components.
  *
  * Note: This is not intended to be used directly, but should be extended by a component that will
  * customize this component's appearance by supplying an
- * [iconComponent prop]{@link my-theme/ToggleItem.ToggleItemBase#iconComponent}.
+ * [iconComponent prop]{@link myhouse/ToggleItem.ToggleItemBase#iconComponent}.
  *
  * @example
  * <ToggleItem
@@ -13,7 +13,7 @@
  * 	Toggle me
  * </ToggleItem>
  *
- * @module my-theme/ToggleItem
+ * @module myhouse/ToggleItem
  * @exports ToggleItem
  * @exports ToggleItemBase
  * @exports ToggleItemDecorator
@@ -33,17 +33,17 @@ import {SlotItemBase} from '../SlotItem';
 import componentCss from './ToggleItem.module.less';
 
 /**
- * A MyTheme styled toggle [Item]{@link my-theme/Item} without any behavior.
+ * A Myhouse styled toggle [Item]{@link myhouse/Item} without any behavior.
  *
  * @class ToggleItemBase
- * @memberof my-theme/ToggleItem
+ * @memberof myhouse/ToggleItem
  * @ui
  * @public
  */
 const ToggleItemBase = kind({
 	name: 'ToggleItem',
 
-	propTypes: /** @lends my-theme/ToggleItem.ToggleItemBase.prototype */ {
+	propTypes: /** @lends myhouse/ToggleItem.ToggleItemBase.prototype */ {
 		/**
 		 * The content to be displayed as the main content of the toggle item.
 		 *
@@ -57,7 +57,7 @@ const ToggleItemBase = kind({
 		 * The icon component to render in this item.
 		 *
 		 * This component receives the `selected` prop and value, and must therefore respond to it in some
-		 * way. It is recommended to use [ToggleIcon]{@link my-theme/ToggleIcon} for this.
+		 * way. It is recommended to use [ToggleIcon]{@link myhouse/ToggleIcon} for this.
 		 *
 		 * @type {Component|Element}
 		 * @required
@@ -81,7 +81,7 @@ const ToggleItemBase = kind({
 		/**
 		 * Overrides the icon of the `iconComponent` component.
 		 *
-		 * This accepts any string that the [Icon]{@link my-theme/Icon.Icon} component supports,
+		 * This accepts any string that the [Icon]{@link myhouse/Icon.Icon} component supports,
 		 * provided the recommendations of `iconComponent` are followed.
 		 *
 		 * @type {String}
@@ -112,10 +112,10 @@ const ToggleItemBase = kind({
  * Adds interactive functionality to `ToggleItemBase`.
  *
  * @class ToggleItemDecorator
- * @memberof my-theme/ToggleItem
+ * @memberof myhouse/ToggleItem
  * @mixes ui/ToggleItem.ToggleItemDecorator
  * @mixes spotlight/Spottable.Spottable
- * @mixes my-theme/Skinnable
+ * @mixes myhouse/Skinnable
  * @hoc
  * @public
  */
@@ -126,15 +126,15 @@ const ToggleItemDecorator = compose(
 );
 
 /**
- * A MyTheme styled item with built-in support for toggling and `Spotlight` focus.
+ * A Myhouse styled item with built-in support for toggling and `Spotlight` focus.
  *
  * This is not intended to be used directly, but should be extended by a component that will
  * customize this component's appearance by supplying an `iconComponent` prop.
  *
  * @class ToggleItem
- * @memberof my-theme/ToggleItem
- * @extends my-theme/ToggleItem.ToggleItemBase
- * @mixes my-theme/ToggleItem.ToggleItemDecorator
+ * @memberof myhouse/ToggleItem
+ * @extends myhouse/ToggleItem.ToggleItemBase
+ * @mixes myhouse/ToggleItem.ToggleItemDecorator
  * @ui
  * @public
  */
@@ -144,10 +144,10 @@ const ToggleItem = ToggleItemDecorator(ToggleItemBase);
  * The Icon to render in this item.
  *
  * This component receives the `selected` prop and value, and must therefore respond to it in some
- * way. It is recommended to use [ToggleIcon]{@link my-theme/ToggleIcon} for this.
+ * way. It is recommended to use [ToggleIcon]{@link myhouse/ToggleIcon} for this.
  *
  * @name iconComponent
- * @memberof my-theme/ToggleItem.ToggleItem.prototype
+ * @memberof myhouse/ToggleItem.ToggleItem.prototype
  * @type {Component|Element}
  * @default null
  * @required

@@ -1,7 +1,7 @@
 /**
- * Exports the {@link my-theme/Skinnable.Skinnable} Higher-order Component (HOC).
+ * Exports the {@link myhouse/Skinnable.Skinnable} Higher-order Component (HOC).
  *
- * @module my-theme/Skinnable
+ * @module myhouse/Skinnable
  * @public
  */
 
@@ -12,17 +12,18 @@ const defaultConfig = {
 	skins: {
 		// Name of the skin, referred to in the `skin`` prop : skin className (in CSS)
 		// These can be different strings, they just happen to be the same in this case.
-		'my-skin': 'my-skin'
+		'myroom': 'myroom',
+		'mykitchen': 'mykitchen'
 	}
 };
 
 /**
  * This Higher-order Component is based on [ui/Skinnable]{@link ui/Skinnable.Skinnable} and comes
- * pre-configured for MyTheme's supported skin, "my-skin". It is used to apply the relevant skinning
+ * pre-configured for Myhouse's supported skin, "myroom". It is used to apply the relevant skinning
  * classes to each component.
  *
  * @class Skinnable
- * @memberof my-theme/Skinnable
+ * @memberof myhouse/Skinnable
  * @hoc
  * @public
  */
@@ -31,7 +32,7 @@ const Skinnable = hoc(defaultConfig, UiSkinnable);
 /**
  * Select a skin by name by specifying this property. This may be changed at runtime. All components
  * already use their defaults, but a skin may be changed via this prop or by using
- * {@link my-theme/Skinnable} directly and a config object.
+ * {@link myhouse/Skinnable} directly and a config object.
  *
  * Example:
  * ```
@@ -40,8 +41,8 @@ const Skinnable = hoc(defaultConfig, UiSkinnable);
  *
  * @name skin
  * @type {String}
- * @default 'my-skin'
- * @memberof my-theme/Skinnable.Skinnable
+ * @default 'myroom'
+ * @memberof myhouse/Skinnable.Skinnable
  * @instance
  * @public
  */

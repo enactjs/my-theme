@@ -1,5 +1,5 @@
 /**
- * Provides a MyTheme item component that accepts multiple positions for children.
+ * Provides a Myhouse item component that accepts multiple positions for children.
  *
  * Using the usual `children` prop, as well as two additional props: `slotBefore`, and `slotAfter`.
  * It is customizable by a theme or application.
@@ -14,7 +14,7 @@
  * 	<Icon slot="slotAfter">trash</Icon>
  * </SlotItem>
  *
- * @module my-theme/SlotItem
+ * @module myhouse/SlotItem
  * @exports SlotItem
  * @exports SlotItemBase
  * @exports SlotItemDecorator
@@ -34,20 +34,20 @@ import Skinnable from '../Skinnable';
 import componentCss from './SlotItem.module.less';
 
 /**
- * A MyTheme styled SlotItem without any behavior.
+ * A Myhouse styled SlotItem without any behavior.
  *
  * @class SlotItemBase
- * @memberof my-theme/SlotItem
+ * @memberof myhouse/SlotItem
  * @extends ui/SlotItem.SlotItemBase
  * @omit component
- * @mixes my-theme/Item.ItemBase
+ * @mixes myhouse/Item.ItemBase
  * @ui
  * @public
  */
 const SlotItemBase = kind({
 	name: 'SlotItem',
 
-	propTypes: /** @lends my-theme/SlotItem.SlotItemBase.prototype */ {
+	propTypes: /** @lends myhouse/SlotItem.SlotItemBase.prototype */ {
 		/**
 		 * Customizes the component by mapping the supplied collection of CSS class names to the
 		 * corresponding internal Elements and states of this component.
@@ -81,14 +81,14 @@ const SlotItemBase = kind({
 });
 
 /**
- * MyTheme-specific item with overlay behaviors to apply to SlotItem.
+ * Myhouse-specific item with overlay behaviors to apply to SlotItem.
  *
  * @class SlotItemDecorator
- * @memberof my-theme/SlotItem
+ * @memberof myhouse/SlotItem
  * @mixes ui/SlotItem.SlotItemDecorator
  * @mixes ui/Toggleable
  * @mixes spotlight.Spottable
- * @mixes my-theme/Skinnable
+ * @mixes myhouse/Skinnable
  * @hoc
  * @public
  */
@@ -100,7 +100,7 @@ const SlotItemDecorator = compose(
 );
 
 /**
- * A MyTheme styled item with built-in support for overlays.
+ * A Myhouse styled item with built-in support for overlays.
  *
  * ```
  *	<SlotItem autoHide="both">
@@ -114,9 +114,9 @@ const SlotItemDecorator = compose(
  * ```
  *
  * @class SlotItem
- * @memberof my-theme/SlotItem
- * @extends my-theme/SlotItem.SlotItemBase
- * @mixes my-theme/SlotItem.SlotItemDecorator
+ * @memberof myhouse/SlotItem
+ * @extends myhouse/SlotItem.SlotItemBase
+ * @mixes myhouse/SlotItem.SlotItemDecorator
  * @ui
  * @public
  */

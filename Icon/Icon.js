@@ -1,10 +1,10 @@
 /**
- * Provides MyTheme styled icon components and behaviors.
+ * Provides Myhouse styled icon components and behaviors.
  *
  * @example
  * <Icon>flag</Icon>
  *
- * @module my-theme/Icon
+ * @module myhouse/Icon
  * @exports Icon
  * @exports IconBase
  * @exports IconDecorator
@@ -22,13 +22,13 @@ import Skinnable from '../Skinnable';
 import componentCss from './Icon.module.less';
 
 /**
- * Renders a MyTheme-styled icon without any behavior.
+ * Renders a Myhouse-styled icon without any behavior.
  *
- * my-theme uses Material icons out-of-the-box. For a complete list of supported icons, visit the
+ * myhouse uses Material icons out-of-the-box. For a complete list of supported icons, visit the
  * material icons website: https://material.io/tools/icons/
  *
  * @class IconBase
- * @memberof my-theme/Icon
+ * @memberof myhouse/Icon
  * @extends ui/Icon.Icon
  * @ui
  * @public
@@ -36,7 +36,7 @@ import componentCss from './Icon.module.less';
 const IconBase = kind({
 	name: 'Icon',
 
-	propTypes: /** @lends my-theme/Icon.Icon.prototype */ {
+	propTypes: /** @lends myhouse/Icon.Icon.prototype */ {
 		/**
 		 * The icon content.
 		 *
@@ -67,11 +67,11 @@ const IconBase = kind({
 });
 
 /**
- * MyTheme-specific behaviors to apply to [IconBase]{@link my-theme/Icon.IconBase}.
+ * Myhouse-specific behaviors to apply to [IconBase]{@link myhouse/Icon.IconBase}.
  *
  * @hoc
- * @memberof my-theme/Icon
- * @mixes my-theme/Skinnable.Skinnable
+ * @memberof myhouse/Icon
+ * @mixes myhouse/Skinnable.Skinnable
  * @public
  */
 const IconDecorator = compose(
@@ -79,12 +79,12 @@ const IconDecorator = compose(
 );
 
 /**
- * A MyTheme-styled icon.
+ * A Myhouse-styled icon.
  *
  * @class Icon
- * @memberof my-theme/Icon
- * @extends my-theme/Icon.IconBase
- * @mixes my-theme/Icon.IconDecorator
+ * @memberof myhouse/Icon
+ * @extends myhouse/Icon.IconBase
+ * @mixes myhouse/Icon.IconDecorator
  * @ui
  * @public
  */

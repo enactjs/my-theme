@@ -1,8 +1,8 @@
 {
-  "name": "@enact/my-theme",
+  "name": "@enact/myhouse",
   "version": "1.0.0-alpha.0",
   "description": "A theme library for Enact, containing a variety of UI components.",
-  "repository": "https://github.com/enactjs/my-theme",
+  "repository": "https://github.com/enactjs/myhouse",
   "main": "index.js",
   "scripts": {
     "clean": "enact clean",

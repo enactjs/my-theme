@@ -1,10 +1,10 @@
 /**
- * Provides MyTheme themed item components and behaviors. Useful for content in lists.
+ * Provides Myhouse themed item components and behaviors. Useful for content in lists.
  *
  * @example
  * <Item>Hello Enact!</Item>
  *
- * @module my-theme/Item
+ * @module myhouse/Item
  * @exports Item
  * @exports ItemBase
  */
@@ -18,10 +18,10 @@ import componentCss from './Item.module.less';
 import Skinnable from '../Skinnable';
 
 /**
- * A MyTheme styled item.
+ * A Myhouse styled item.
  *
  * @class ItemBase
- * @memberof my-theme/Item
+ * @memberof myhouse/Item
  * @ui
  * @public
  */
@@ -33,13 +33,13 @@ const ItemBase = (props) => (
 );
 
 /**
- * MyTheme specific item behaviors to apply to `Item`.
+ * Myhouse specific item behaviors to apply to `Item`.
  *
  * @class ItemDecorator
  * @hoc
- * @memberof my-theme/Item
+ * @memberof myhouse/Item
  * @mixes spotlight.Spottable
- * @mixes my-theme/Skinnable
+ * @mixes myhouse/Skinnable
  * @ui
  * @public
  */

@@ -1,7 +1,7 @@
 /**
- * Exports the {@link my-theme/ThemeDecorator.ThemeDecorator} HOC
+ * Exports the {@link myhouse/ThemeDecorator.ThemeDecorator} HOC
  *
- * @module my-theme/ThemeDecorator
+ * @module myhouse/ThemeDecorator
  */
 
 import {addAll} from '@enact/core/keymap';
@@ -18,9 +18,9 @@ import screenTypes from './screenTypes.json';
 import css from './ThemeDecorator.module.less';
 
 /**
- * Default config for {@link my-theme/ThemeDecorator.ThemeDecorator}.
+ * Default config for {@link myhouse/ThemeDecorator.ThemeDecorator}.
  *
- * @memberof my-theme/ThemeDecorator
+ * @memberof myhouse/ThemeDecorator
  * @hocconfig
  */
 const defaultConfig = {
@@ -34,8 +34,8 @@ const defaultConfig = {
 };
 
 /**
- * {@link my-theme/ThemeDecorator.ThemeDecorator} is a Higher-order Component that applies
- * MyTheme theming to an application. It also applies
+ * {@link myhouse/ThemeDecorator.ThemeDecorator} is a Higher-order Component that applies
+ * Myhouse theming to an application. It also applies
  * [floating layer]{@link ui/FloatingLayer.FloatingLayerDecorator},
  * [resolution independence]{@link ui/resolution.ResolutionDecorator},
  * [skin support]{@link ui/Skinnable}, [spotlight]{@link spotlight.SpotlightRootDecorator}, and
@@ -43,12 +43,12 @@ const defaultConfig = {
  * the root element of an app.
  *
  * [Skins]{@link ui/Skinnable} provide a way to change the coloration of your app. Only one skin
- * ("my-skin") is included with this theme. It is currently set as the default so you don't need to
+ * ("myroom") is included with this theme. It is currently set as the default so you don't need to
  * set anything yet. Use the `skin` property to assign a skin when or if you add more.
  * Ex: `<DecoratedApp skin="light" />`
  *
  * @class ThemeDecorator
- * @memberof my-theme/ThemeDecorator
+ * @memberof myhouse/ThemeDecorator
  * @hoc
  * @public
  */
@@ -61,7 +61,7 @@ const ThemeDecorator = hoc(defaultConfig, (config, Wrapped) => {
 	if (float) App = FloatingLayerDecorator({wrappedClassName: bgClassName}, App);
 	if (ri) App = ResolutionDecorator(ri, App);
 	if (spotlight) App = SpotlightRootDecorator({noAutoFocus}, App);
-	if (skin) App = Skinnable({defaultSkin: 'my-skin'}, App);
+	if (skin) App = Skinnable({defaultSkin: 'myroom'}, App);
 
 	// add webOS-specific key maps
 	addAll({

@@ -10,12 +10,12 @@ import Skinnable from '../Skinnable';
 import componentCss from './Panel.module.less';
 
 /**
- * A Panel is the standard view container used inside a [Panels]{@link my-theme/Panels.Panels} view
- * manager instance. [Panels]{@link my-theme/Panels.Panels} will typically contain several
+ * A Panel is the standard view container used inside a [Panels]{@link myhouse/Panels.Panels} view
+ * manager instance. [Panels]{@link myhouse/Panels.Panels} will typically contain several
  * instances of these and transition between them.
  *
  * @class Panel
- * @memberof my-theme/Panels
+ * @memberof myhouse/Panels
  * @ui
  * @public
  */
@@ -23,7 +23,7 @@ const PanelBase = kind({
 
 	name: 'Panel',
 
-	propTypes: /** @lends my-theme/Panels.Panel.prototype */ {
+	propTypes: /** @lends myhouse/Panels.Panel.prototype */ {
 		/**
 		 * Customizes the component by mapping the supplied collection of CSS class names to the
 		 * corresponding internal Elements and states of this component.

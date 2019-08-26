@@ -1,10 +1,10 @@
 /**
- * Provides a MyTheme Item component and interactive radio toggle icon.
+ * Provides a Myhouse Item component and interactive radio toggle icon.
  *
  * @example
  * <RadioItem>Item</RadioItem>
  *
- * @module my-theme/RadioItem
+ * @module myhouse/RadioItem
  * @exports RadioItem
  * @exports RadioItemBase
  */
@@ -22,8 +22,8 @@ import componentCss from './RadioItem.module.less';
  * Renders an `Item` with a radio-dot icon.
  *
  * @class RadioItem
- * @memberof my-theme/RadioItem
- * @extends my-theme/ToggleItem.ToggleItem
+ * @memberof myhouse/RadioItem
+ * @extends myhouse/ToggleItem.ToggleItem
  * @omit iconComponent
  * @ui
  * @public
@@ -31,7 +31,7 @@ import componentCss from './RadioItem.module.less';
 const RadioItemBase = kind({
 	name: 'RadioItem',
 
-	propTypes: /** @lends my-theme/RadioItem.RadioItem.prototype */ {
+	propTypes: /** @lends myhouse/RadioItem.RadioItem.prototype */ {
 		/**
 		 * Customizes the component by mapping the supplied collection of CSS class names to the
 		 * corresponding internal Elements and states of this component.

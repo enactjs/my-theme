@@ -1,12 +1,12 @@
 /**
- * MyTheme styled labeled Heading components and behaviors
+ * Myhouse styled labeled Heading components and behaviors
  *
  * @example
  * <Heading>
  *   A Content Section Heading
  * </Heading>
  *
- * @module my-theme/Heading
+ * @module myhouse/Heading
  * @exports Heading
  * @exports HeadingBase
  * @exports HeadingDecorator
@@ -26,17 +26,17 @@ import componentCss from './Heading.module.less';
  * A labeled Heading component.
  *
  * This component is most often not used directly but may be composed within another component as it
- * is within [Heading]{@link my-theme/Heading.Heading}.
+ * is within [Heading]{@link myhouse/Heading.Heading}.
  *
  * @class HeadingBase
- * @memberof my-theme/Heading
+ * @memberof myhouse/Heading
  * @ui
  * @public
  */
 const HeadingBase = kind({
 	name: 'Heading',
 
-	propTypes: /** @lends my-theme/Heading.HeadingBase.prototype */ {
+	propTypes: /** @lends myhouse/Heading.HeadingBase.prototype */ {
 		css: PropTypes.object,
 
 		/**
@@ -67,11 +67,11 @@ const HeadingBase = kind({
 });
 
 /**
- * Applies MyTheme specific behaviors to [HeadingBase]{@link my-theme/Heading.HeadingBase}.
+ * Applies Myhouse specific behaviors to [HeadingBase]{@link myhouse/Heading.HeadingBase}.
  *
  * @hoc
- * @memberof my-theme/Heading
- * @mixes my-theme/Skinnable.Skinnable
+ * @memberof myhouse/Heading
+ * @mixes myhouse/Skinnable.Skinnable
  * @public
  */
 const HeadingDecorator = compose(
@@ -79,7 +79,7 @@ const HeadingDecorator = compose(
 );
 
 /**
- * A labeled Heading component, ready to use in MyTheme applications.
+ * A labeled Heading component, ready to use in Myhouse applications.
  *
  * `Heading` may be used as a header to group related components.
  *
@@ -93,9 +93,9 @@ const HeadingDecorator = compose(
  * ```
  *
  * @class Heading
- * @memberof my-theme/Heading
- * @extends my-theme/Heading.HeadingBase
- * @mixes my-theme/Heading.HeadingDecorator
+ * @memberof myhouse/Heading
+ * @extends myhouse/Heading.HeadingBase
+ * @mixes myhouse/Heading.HeadingDecorator
  * @ui
  * @public
  */
