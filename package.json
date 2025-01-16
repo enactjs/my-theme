@@ -29,14 +29,14 @@
     "extends": "enact/strict"
   },
   "dependencies": {
-    "@enact/core": "^4.7.9",
-    "@enact/i18n": "^4.7.9",
-    "@enact/spotlight": "^4.7.9",
-    "@enact/ui": "^4.7.9",
-    "ilib": "^14.19.0",
+    "@enact/core": "^5.0.0-alpha.3",
+    "@enact/i18n": "^5.0.0-alpha.3",
+    "@enact/spotlight": "^5.0.0-alpha.3",
+    "@enact/ui": "^5.0.0-alpha.3",
+    "ilib": "^14.21.0",
     "classnames": "^2.5.1",
     "prop-types": "^15.8.1",
-    "ramda": "^0.29.1",
-    "react": "^18.2.0"
+    "ramda": "^0.30.1",
+    "react": "^19.0.0"
   }
 }
