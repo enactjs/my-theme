@@ -19,10 +19,8 @@ Most of the components in the starter theme are built from base components provi
 * `Panels` - a component to handle multiple views; also exports `Panel`
 * `RadioItem` - a selectable `ToggleItem` with a radio button
 * `Skinnable` - a HOC for providing skin support to components
-* `SlotItem` - an `Item` that has "slots" where additional components (like an `Icon`) can be rendered
 * `ThemeDecorator` - a HOC for applying the theme's behaviors to an application
 * `ToggleIcon` - an `Icon` with `ui/Toggleable` behavior
-* `ToggleItem` - an `Item` with `ui/Toggleable` behavior
 
 ### Behaviors
 
