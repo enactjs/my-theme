@@ -12,6 +12,7 @@
 
 import EnactPropTypes from '@enact/core/internal/prop-types';
 import kind from '@enact/core/kind';
+import Spottable from '@enact/spotlight/Spottable';
 import ForwardRef from '@enact/ui/ForwardRef';
 import {ItemDecorator as UiItemDecorator} from '@enact/ui/Item';
 import Slottable from '@enact/ui/Slottable';
@@ -22,7 +23,6 @@ import {ItemBase} from '../Item';
 import Skinnable from '../Skinnable';
 
 import componentCss from './SlotItem.module.less';
-import Spottable from "@enact/spotlight/Spottable";
 
 /**
  * An ui-styled `SlotItem` without any behavior.
@@ -179,6 +179,8 @@ const SlotItemBase = kind({
  *
  * @class SlotItemDecorator
  * @memberof my-theme/SlotItem
+ * @mixes my-theme/Skinnable.Skinnable
+ * @mixes spotlight/Spottable.Spottable
  * @mixes ui/Slottable.Slottable
  * @mixes ui/ForwardRef.ForwardRef
  * @hoc
@@ -187,9 +189,9 @@ const SlotItemBase = kind({
 const SlotItemDecorator = compose(
 	ForwardRef({prop: 'componentRef'}),
 	Slottable({slots: ['slotAfter', 'slotBefore']}),
-	UiItemDecorator,
+	Skinnable,
 	Spottable,
-	Skinnable
+	UiItemDecorator
 );
 
 /**
