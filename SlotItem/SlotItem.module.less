@@ -1,4 +1,4 @@
-// Item.module.less
+// SlotItem.module.less
 //
 @import "../styles/mixins.less";
 @import "../styles/skin.less";
@@ -11,6 +11,14 @@
 };
 
 .slotItem {
+	&.flex {
+		display: flex;
+
+		&.inline {
+			display: inline-flex;
+		}
+	}
+
 	// Apply to the content area to tell it to expand to the available width of the container
 	.content {
 		flex: 1 1 auto;

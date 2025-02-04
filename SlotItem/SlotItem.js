@@ -1,18 +1,8 @@
 /**
- * Provides a MyTheme item component that accepts multiple positions for children.
+ * An unstyled item component that accepts multiple positions of children.
  *
  * Using the usual `children` prop, as well as two additional props: `slotBefore`, and `slotAfter`.
- * It is customizable by a theme or application.
- *
- * @example
- * <SlotItem autoHide="both">
- * 	<slotBefore>
- * 		<Icon>flag</Icon>
- * 		<Icon>star</Icon>
- * 	</slotBefore>
- * 	An Item that will show some icons before and after this text when spotted
- * 	<Icon slot="slotAfter">trash</Icon>
- * </SlotItem>
+ * It can be customized by a theme or application.
  *
  * @module my-theme/SlotItem
  * @exports SlotItem
@@ -20,26 +10,25 @@
  * @exports SlotItemDecorator
  */
 
+import EnactPropTypes from '@enact/core/internal/prop-types';
 import kind from '@enact/core/kind';
-import Spottable from '@enact/spotlight/Spottable';
+import ForwardRef from '@enact/ui/ForwardRef';
 import {ItemDecorator as UiItemDecorator} from '@enact/ui/Item';
+import Slottable from '@enact/ui/Slottable';
 import PropTypes from 'prop-types';
 import compose from 'ramda/src/compose';
 
 import {ItemBase} from '../Item';
 import Skinnable from '../Skinnable';
-import {SlotItemBase as UiSlotItemBase, SlotItemDecorator as UiSlotItemDecorator} from '../UiSlotItem';
 
 import componentCss from './SlotItem.module.less';
+import Spottable from "@enact/spotlight/Spottable";
 
 /**
- * A MyTheme styled SlotItem without any behavior.
+ * An ui-styled `SlotItem` without any behavior.
  *
  * @class SlotItemBase
  * @memberof my-theme/SlotItem
- * @extends my-theme/UiSlotItem.SlotItemBase
- * @omit component
- * @mixes my-theme/Item.ItemBase
  * @ui
  * @public
  */
@@ -48,74 +37,180 @@ const SlotItemBase = kind({
 
 	propTypes: /** @lends my-theme/SlotItem.SlotItemBase.prototype */ {
 		/**
+		 * Controls the visibility state of the slots.
+		 *
+		 * One, both, or neither slot can be shown. Choosing `'after'` will leave `slotBefore`
+		 * visible at all times; only `slotAfter` will have its visibility toggled.  Valid values
+		 * are `'before'`, `'after'` and `'both'`. Omitting the property will result in
+		 * no-auto-hiding for either slot, so they will both be present.
+		 *
+		 * In order for `autoHide` to have a visual affect, the `hidden` class must be tied to
+		 * another condition such as focus.
+		 *
+		 * ```
+		 * .slot.hidden:not(:focus) {
+		 *   display: none;
+		 * }
+		 * ```
+		 *
+		 * @type {Boolean}
+		 * @public
+		 */
+		autoHide: PropTypes.oneOf(['after', 'before', 'both']),
+
+		/**
+		 * Called with a reference to the root component.
+		 *
+		 * When using {@link my-theme/SlotItem.SlotItem}, the `ref` prop is forwarded to this component
+		 * as `componentRef`.
+		 *
+		 * @type {Object|Function}
+		 * @public
+		 */
+		componentRef: EnactPropTypes.ref,
+
+		/**
 		 * Customizes the component by mapping the supplied collection of CSS class names to the
-		 * corresponding internal Elements and states of this component.
+		 * corresponding internal elements and states of this component.
 		 *
 		 * The following classes are supported:
 		 *
 		 * * `slotItem` - The root class name
+		 * * `slot` - Applied to both slots
+		 * * `after` - Applied to the slot that falls after the content
+		 * * `before` - Applied to the slot that falls before the content
+		 * * `hidden` - Applied to a slot when that slot is supposed to be hidden, according to
+		 *              `autoHide` prop
 		 *
 		 * @type {Object}
 		 * @public
 		 */
-		css: PropTypes.object
+		css: PropTypes.object,
+
+		/**
+		 * Applies inline styling to the component.
+		 *
+		 * @type {Boolean}
+		 * @default false
+		 * @public
+		 */
+		inline: PropTypes.bool,
+
+		/**
+		 * The layout technique for `SlotItem`.
+		 *
+		 * `"flex"` is applied as a default and gives basic flex support to the wrapping elements.
+		 * This may be set to `null` to define your own layout method.
+		 *
+		 * @type {String}
+		 * @default 'flex'
+		 * @public
+		 */
+		layout: PropTypes.oneOf(['flex']),
+
+		/**
+		 * Nodes to be inserted after `children` and hidden using `autoHide`.
+		 *
+		 * If nothing is specified, nothing, not even an empty container, is rendered in this place.
+		 *
+		 * @type {Node}
+		 * @public
+		 */
+		slotAfter: PropTypes.node,
+
+		/**
+		 * Nodes to be inserted before `children` and hidden using `autoHide`.
+		 *
+		 * If nothing is specified, nothing, not even an empty container, is rendered in this place.
+		 *
+		 * @type {Node}
+		 * @public
+		 */
+		slotBefore: PropTypes.node
+	},
+
+	defaultProps: {
+		component: 'div',
+		inline: false,
+		layout: 'flex'
 	},
 
 	styles: {
 		css: componentCss,
-		publicClassNames: ['slotItem']
+		className: 'slotItem',
+		publicClassNames: true
 	},
 
-	render: ({children, css, ...rest}) => {
+	computed: {
+		className: ({inline, layout, styler}) => styler.append(layout, {inline}),
+		slotBefore: ({slotBefore, autoHide, styler}) => (slotBefore ?
+			<div className={styler.join('slot', 'before', {hidden: (autoHide === 'before' || autoHide === 'both')})}>
+				{slotBefore}
+			</div> : null
+		),
+		slotAfter: ({slotAfter, autoHide, styler}) => (slotAfter ?
+			<div className={styler.join('slot', 'after', {hidden: (autoHide === 'after' || autoHide === 'both')})}>
+				{slotAfter}
+			</div> : null
+		)
+	},
+
+	render: ({css, children, componentRef, inline, slotAfter, slotBefore, ...rest}) => {
+		delete rest.autoHide;
+		delete rest.layout;
+
 		return (
-			<UiSlotItemBase
-				{...rest}
-				component={ItemBase}
+			<ItemBase
 				css={css}
+				inline={inline}
+				ref={componentRef}
+				{...rest}
 			>
+				{slotBefore}
 				<div className={css.content}>{children}</div>
-			</UiSlotItemBase>
+				{slotAfter}
+			</ItemBase>
 		);
 	}
 });
 
 /**
- * MyTheme-specific item with overlay behaviors to apply to SlotItem.
+ * An ui-specific higher-order component (HOC) with slot behaviors to apply to {@link my-theme/SlotItem.SlotItemBase|SlotItem}.
  *
  * @class SlotItemDecorator
  * @memberof my-theme/SlotItem
- * @mixes my-theme/UiSlotItem.SlotItemDecorator
- * @mixes ui/Toggleable
- * @mixes spotlight.Spottable
- * @mixes my-theme/Skinnable
+ * @mixes ui/Slottable.Slottable
+ * @mixes ui/ForwardRef.ForwardRef
  * @hoc
  * @public
  */
 const SlotItemDecorator = compose(
-	UiSlotItemDecorator,
-	UiItemDecorator, // (Touchable)
+	ForwardRef({prop: 'componentRef'}),
+	Slottable({slots: ['slotAfter', 'slotBefore']}),
+	UiItemDecorator,
 	Spottable,
 	Skinnable
 );
 
 /**
- * A MyTheme styled item with built-in support for overlays.
+ * An ui-styled item with built-in support for slots.
  *
+ * Example:
  * ```
- *	<SlotItem autoHide="both">
+ *	<SlotItem component={Item} autoHide="both">
  *		<slotBefore>
  *			<Icon>flag</Icon>
  *			<Icon>star</Icon>
  *		</slotBefore>
- *		An Item that will show some icons before and after this text when spotted
+ *		An Item that will show some icons slotBefore and slotAfter this text when spotted
  *		<Icon slot="slotAfter">trash</Icon>
  *	</SlotItem>
  * ```
  *
  * @class SlotItem
  * @memberof my-theme/SlotItem
- * @extends my-theme/SlotItem.SlotItemBase
  * @mixes my-theme/SlotItem.SlotItemDecorator
+ * @omit componentRef
  * @ui
  * @public
  */

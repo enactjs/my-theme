@@ -88,7 +88,7 @@ const ToggleItemBase = kind({
 		 *
 		 * This receives the `css` prop for theme extension and therefore must be a custom
 		 * component and not a simple HTML DOM node. Recommended component or themed
-		 * derivative: {@link my-theme/UiSlotItem.SlotItem|SlotItem}
+		 * derivative: {@link my-theme/SlotItem.SlotItem|SlotItem}
 		 *
 		 * @type {String|Component}
 		 * @default 'div'
