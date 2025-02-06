@@ -8,9 +8,9 @@
  *
  * @example
  * <ToggleItem
- * 		iconComponent={Checkbox}
- * 		iconPosition='before'>
- * 		Toggle me
+ * 	iconComponent={Checkbox}
+ * 	iconPosition='before'>
+ * 	Toggle me
  * </ToggleItem>
  *
  * @module my-theme/ToggleItem

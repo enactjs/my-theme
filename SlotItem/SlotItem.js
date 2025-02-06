@@ -2,17 +2,17 @@
  * Provides a MyTheme item component that accepts multiple positions for children.
  *
  * Using the usual `children` prop, as well as two additional props: `slotBefore`, and `slotAfter`.
- * t is customizable by a theme or application.
+ * It is customizable by a theme or application.
  *
  * @example
- *	<SlotItem autoHide="both">
- *		<slotBefore>
- *			<Icon size="small">flag</Icon>
- *			<Icon size="small">star</Icon>
- *		</slotBefore>
- *		An Item that will show some icons before and after this text when spotted
- *		<Icon size="small" slot="slotAfter">trash</Icon>
- *	</SlotItem>
+ * <SlotItem autoHide="both">
+ * 	<slotBefore>
+ * 		<Icon size="small">flag</Icon>
+ * 		<Icon size="small">star</Icon>
+ * 	</slotBefore>
+ * 	An Item that will show some icons before and after this text when spotted
+ * 	<Icon size="small" slot="slotAfter">trash</Icon>
+ * </SlotItem>
  *
  * @module my-theme/SlotItem
  * @exports SlotItem
@@ -73,11 +73,6 @@ const SlotItemBase = kind({
 		 * The following classes are supported:
 		 *
 		 * * `slotItem` - The root class name
-		 * * `slot` - Applied to both slots
-		 * * `after` - Applied to the slot that falls after the content
-		 * * `before` - Applied to the slot that falls before the content
-		 * * `hidden` - Applied to a slot when that slot is supposed to be hidden, according to
-		 *              `autoHide` prop
 		 *
 		 * @type {Object}
 		 * @public
