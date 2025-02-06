@@ -1,8 +1,18 @@
 /**
- * An unstyled item component that accepts multiple positions of children.
+ * Provides a MyTheme item component that accepts multiple positions for children.
  *
  * Using the usual `children` prop, as well as two additional props: `slotBefore`, and `slotAfter`.
- * It can be customized by a theme or application.
+ * t is customizable by a theme or application.
+ *
+ * @example
+ *	<SlotItem autoHide="both">
+ *		<slotBefore>
+ *			<Icon size="small">flag</Icon>
+ *			<Icon size="small">star</Icon>
+ *		</slotBefore>
+ *		An Item that will show some icons before and after this text when spotted
+ *		<Icon size="small" slot="slotAfter">trash</Icon>
+ *	</SlotItem>
  *
  * @module my-theme/SlotItem
  * @exports SlotItem
@@ -10,10 +20,8 @@
  * @exports SlotItemDecorator
  */
 
-import EnactPropTypes from '@enact/core/internal/prop-types';
 import kind from '@enact/core/kind';
 import Spottable from '@enact/spotlight/Spottable';
-import ForwardRef from '@enact/ui/ForwardRef';
 import {ItemDecorator as UiItemDecorator} from '@enact/ui/Item';
 import Slottable from '@enact/ui/Slottable';
 import PropTypes from 'prop-types';
@@ -25,7 +33,7 @@ import Skinnable from '../Skinnable';
 import componentCss from './SlotItem.module.less';
 
 /**
- * An ui-styled `SlotItem` without any behavior.
+ * A MyTheme styled SlotItem without any behavior.
  *
  * @class SlotItemBase
  * @memberof my-theme/SlotItem
@@ -57,17 +65,6 @@ const SlotItemBase = kind({
 		 * @public
 		 */
 		autoHide: PropTypes.oneOf(['after', 'before', 'both']),
-
-		/**
-		 * Called with a reference to the root component.
-		 *
-		 * When using {@link my-theme/SlotItem.SlotItem}, the `ref` prop is forwarded to this component
-		 * as `componentRef`.
-		 *
-		 * @type {Object|Function}
-		 * @public
-		 */
-		componentRef: EnactPropTypes.ref,
 
 		/**
 		 * Customizes the component by mapping the supplied collection of CSS class names to the
@@ -155,7 +152,7 @@ const SlotItemBase = kind({
 		)
 	},
 
-	render: ({css, children, componentRef, inline, slotAfter, slotBefore, ...rest}) => {
+	render: ({css, children, inline, slotAfter, slotBefore, ...rest}) => {
 		delete rest.autoHide;
 		delete rest.layout;
 
@@ -163,7 +160,6 @@ const SlotItemBase = kind({
 			<ItemBase
 				css={css}
 				inline={inline}
-				ref={componentRef}
 				{...rest}
 			>
 				{slotBefore}
@@ -175,19 +171,17 @@ const SlotItemBase = kind({
 });
 
 /**
- * An ui-specific higher-order component (HOC) with slot behaviors to apply to {@link my-theme/SlotItem.SlotItemBase|SlotItem}.
+ * MyTheme-specific item with overlay behaviors to apply to SlotItem.
  *
  * @class SlotItemDecorator
  * @memberof my-theme/SlotItem
  * @mixes my-theme/Skinnable.Skinnable
  * @mixes spotlight/Spottable.Spottable
  * @mixes ui/Slottable.Slottable
- * @mixes ui/ForwardRef.ForwardRef
  * @hoc
  * @public
  */
 const SlotItemDecorator = compose(
-	ForwardRef({prop: 'componentRef'}),
 	Slottable({slots: ['slotAfter', 'slotBefore']}),
 	Skinnable,
 	Spottable,
@@ -195,16 +189,16 @@ const SlotItemDecorator = compose(
 );
 
 /**
- * An ui-styled item with built-in support for slots.
+ * A MyTheme styled item with built-in support for overlays.
  *
  * Example:
  * ```
- *	<SlotItem component={Item} autoHide="both">
+ *	<SlotItem autoHide="both">
  *		<slotBefore>
  *			<Icon>flag</Icon>
  *			<Icon>star</Icon>
  *		</slotBefore>
- *		An Item that will show some icons slotBefore and slotAfter this text when spotted
+ *		An Item that will show some icons before and after this text when spotted
  *		<Icon slot="slotAfter">trash</Icon>
  *	</SlotItem>
  * ```
@@ -212,7 +206,6 @@ const SlotItemDecorator = compose(
  * @class SlotItem
  * @memberof my-theme/SlotItem
  * @mixes my-theme/SlotItem.SlotItemDecorator
- * @omit componentRef
  * @ui
  * @public
  */

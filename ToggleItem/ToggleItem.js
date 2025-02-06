@@ -1,9 +1,17 @@
 /**
- * Unstyled toggle item components and behaviors.
+ * A MyTheme [Item]{@link my-theme/Item} used as the basis for other stylized toggle item
+ * components.
  *
- * This is not intended to be used directly, but should be extended by a component that will
+ * Note: This is not intended to be used directly, but should be extended by a component that will
  * customize this component's appearance by supplying an
- * {@link my-theme/ToggleItem.ToggleItemBase#iconComponent|iconComponent prop}.
+ * [iconComponent prop]{@link my-theme/ToggleItem.ToggleItemBase#iconComponent}.
+ *
+ * @example
+ * <ToggleItem
+ * 		iconComponent={Checkbox}
+ * 		iconPosition='before'>
+ * 		Toggle me
+ * </ToggleItem>
  *
  * @module my-theme/ToggleItem
  * @exports ToggleItem
@@ -15,7 +23,6 @@ import EnactPropTypes from '@enact/core/internal/prop-types';
 import kind from '@enact/core/kind';
 import ComponentOverride from '@enact/ui/ComponentOverride';
 import Spottable from '@enact/spotlight/Spottable';
-import ForwardRef from '@enact/ui/ForwardRef';
 import Toggleable from '@enact/ui/Toggleable';
 import Touchable from '@enact/ui/Touchable';
 import PropTypes from 'prop-types';
@@ -66,7 +73,7 @@ const iconCreator = (position) => ({disabled, icon, iconComponent, iconPosition,
 };
 
 /**
- * A minimally styled toggle item without any behavior, ripe for extension.
+ * A MyTheme styled toggle [Item]{@link my-theme/Item} without any behavior.
  *
  * @class ToggleItemBase
  * @memberof my-theme/ToggleItem
@@ -78,7 +85,7 @@ const ToggleItemBase = kind({
 
 	propTypes: /** @lends my-theme/ToggleItem.ToggleItemBase.prototype */ {
 		/**
-		 * The main content of the toggle item.
+		 * The content to be displayed as the main content of the toggle item.
 		 *
 		 * @type {Node}
 		 * @required
@@ -87,28 +94,16 @@ const ToggleItemBase = kind({
 		children: PropTypes.node.isRequired,
 
 		/**
-		 * The `Icon` to render in this item.
+		 * The icon component to render in this item.
 		 *
-		 * This component receives the `selected` prop and value,
-		 * and must therefore respond to it in some way. It is recommended to use
-		 * {@link my-theme/ToggleIcon|ToggleIcon} for this.
+		 * This component receives the `selected` prop and value, and must therefore respond to it in some
+		 * way. It is recommended to use [ToggleIcon]{@link my-theme/ToggleIcon} for this.
 		 *
 		 * @type {Component|Element}
 		 * @required
 		 * @public
 		 */
 		iconComponent: EnactPropTypes.componentOverride.isRequired,
-
-		/**
-		 * Called with a reference to the root component.
-		 *
-		 * When using {@link my-theme/ToggleItem.ToggleItem}, the `ref` prop is forwarded to this
-		 * component as `componentRef`.
-		 *
-		 * @type {Object|Function}
-		 * @public
-		 */
-		componentRef: EnactPropTypes.ref,
 
 		/**
 		 * Customizes the component by mapping the supplied collection of CSS class names to the
@@ -237,7 +232,7 @@ const ToggleItemBase = kind({
 		slotAfter: iconCreator('after')
 	},
 
-	render: ({componentRef, css, children, selected, ...rest}) => {
+	render: ({css, children, selected, ...rest}) => {
 		delete rest.iconComponent;
 		delete rest.iconPosition;
 		delete rest.itemIcon;
@@ -246,7 +241,6 @@ const ToggleItemBase = kind({
 
 		return (
 			<SlotItemBase
-				ref={componentRef}
 				role="checkbox"
 				{...rest}
 				css={css}
@@ -272,7 +266,6 @@ const ToggleItemBase = kind({
  * @public
  */
 const ToggleItemDecorator = compose(
-	ForwardRef({prop: 'componentRef'}),
 	Toggleable({toggleProp: 'onTap', eventProps: ['value']}),
 	Touchable,
 	Spottable,
@@ -280,22 +273,33 @@ const ToggleItemDecorator = compose(
 );
 
 /**
- * An unstyled item with built-in support for toggling.
+ * A MyTheme styled item with built-in support for toggling and `Spotlight` focus.
  *
- * Example:
- * ```
- * <ToggleItem icon="lock" iconPosition="before">Toggle Me</ToggleItem>
- * ```
+ * This is not intended to be used directly, but should be extended by a component that will
+ * customize this component's appearance by supplying an `iconComponent` prop.
  *
  * @class ToggleItem
  * @memberof my-theme/ToggleItem
  * @extends my-theme/ToggleItem.ToggleItemBase
  * @mixes my-theme/ToggleItem.ToggleItemDecorator
- * @omit componentRef
  * @ui
  * @public
  */
 const ToggleItem = ToggleItemDecorator(ToggleItemBase);
+
+/**
+ * The Icon to render in this item.
+ *
+ * This component receives the `selected` prop and value, and must therefore respond to it in some
+ * way. It is recommended to use [ToggleIcon]{@link my-theme/ToggleIcon} for this.
+ *
+ * @name iconComponent
+ * @memberof my-theme/ToggleItem.ToggleItem.prototype
+ * @type {Component|Element}
+ * @default null
+ * @required
+ * @public
+ */
 
 export default ToggleItem;
 export {
