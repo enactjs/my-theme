@@ -34,27 +34,18 @@ import Skinnable from '../Skinnable';
 import componentCss from './ToggleItem.module.less';
 
 // eslint-disable-next-line enact/display-name,enact/prop-types
-const iconCreator = (position) => ({disabled, icon, iconComponent, itemIcon, selected}) => {
-	if (position === 'before') {
-		return (
-			<Fragment>
-				{itemIcon}
-				<ComponentOverride
-					component={iconComponent}
-					disabled={disabled}
-					selected={selected}
-				>
-					{icon}
-				</ComponentOverride>
-			</Fragment>
-		);
-	} else {
-		return (
-			<Fragment>
-				{itemIcon}
-			</Fragment>
-		);
-	}
+const iconCreator = () => ({disabled, icon, iconComponent, selected}) => {
+	return (
+		<Fragment>
+			<ComponentOverride
+				component={iconComponent}
+				disabled={disabled}
+				selected={selected}
+			>
+				{icon}
+			</ComponentOverride>
+		</Fragment>
+	);
 };
 
 /**
@@ -124,18 +115,6 @@ const ToggleItemBase = kind({
 		icon: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 
 		/**
-		 * An additional customizable icon component.
-		 *
-		 * Supports more granular positioning rules. This should only be used *after* specifying the
-		 * `icon` property, as the positioning for this offers the ability to place this in front of
-		 * or behind the existing `icon`. See `itemIconPosition` for options.
-		 *
-		 * @type {Node}
-		 * @public
-		 */
-		itemIcon: PropTypes.node,
-
-		/**
 		 * Called when the toggle item is toggled. Developers should generally use `onToggle` instead.
 		 *
 		 * @type {Function}
@@ -186,13 +165,11 @@ const ToggleItemBase = kind({
 	},
 
 	computed: {
-		slotBefore: iconCreator('before'),
-		slotAfter: iconCreator('after')
+		slotBefore: iconCreator()
 	},
 
 	render: ({css, children, selected, ...rest}) => {
 		delete rest.iconComponent;
-		delete rest.itemIcon;
 		delete rest.value;
 
 		return (
