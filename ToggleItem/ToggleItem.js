@@ -9,7 +9,6 @@
  * @example
  * <ToggleItem
  * 	iconComponent={Checkbox}
- * 	iconPosition='before'>
  * 	Toggle me
  * </ToggleItem>
  *
@@ -35,38 +34,24 @@ import Skinnable from '../Skinnable';
 import componentCss from './ToggleItem.module.less';
 
 // eslint-disable-next-line enact/display-name,enact/prop-types
-const iconCreator = (position) => ({disabled, icon, iconComponent, iconPosition, itemIcon, itemIconPosition, selected}) => {
-
+const iconCreator = (position) => ({disabled, icon, iconComponent, itemIcon, selected}) => {
 	if (position === 'before') {
 		return (
 			<Fragment>
-				{itemIconPosition === 'before' && itemIcon}
-				{iconPosition === 'before' ?
-					<ComponentOverride
-						component={iconComponent}
-						disabled={disabled}
-						selected={selected}
-					>
-						{icon}
-					</ComponentOverride> : null
-				}
-				{itemIconPosition === 'beforeChildren' && itemIcon}
+				{itemIcon}
+				<ComponentOverride
+					component={iconComponent}
+					disabled={disabled}
+					selected={selected}
+				>
+					{icon}
+				</ComponentOverride>
 			</Fragment>
 		);
 	} else {
 		return (
 			<Fragment>
-				{itemIconPosition === 'afterChildren' && itemIcon}
-				{iconPosition === 'after' ?
-					<ComponentOverride
-						component={iconComponent}
-						disabled={disabled}
-						selected={selected}
-					>
-						{icon}
-					</ComponentOverride> : null
-				}
-				{itemIconPosition === 'after' && itemIcon}
+				{itemIcon}
 			</Fragment>
 		);
 	}
@@ -81,7 +66,7 @@ const iconCreator = (position) => ({disabled, icon, iconComponent, iconPosition,
  * @public
  */
 const ToggleItemBase = kind({
-	name: 'ui:ToggleItem',
+	name: 'ToggleItem',
 
 	propTypes: /** @lends my-theme/ToggleItem.ToggleItemBase.prototype */ {
 		/**
@@ -130,22 +115,13 @@ const ToggleItemBase = kind({
 		/**
 		 * An optional prop that lets you override the icon of the `iconComponent` component.
 		 *
-		 * This accepts any string that the {@link ui/Icon.Icon|Icon} component supports, provided
-		 * the recommendations of `iconComponent` are followed.
+		 * This accepts any string that the [Icon]{@link my-theme/Icon.Icon} component supports,
+		 * provided the recommendations of `iconComponent` are followed.
 		 *
 		 * @type {String|Object}
 		 * @public
 		 */
 		icon: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-
-		/**
-		 * Specifies on which side (`'before'` or `'after'`) of `children` the icon appears.
-		 *
-		 * @type {('before'|'after')}
-		 * @default 'before'
-		 * @public
-		 */
-		iconPosition: PropTypes.oneOf(['before', 'after']),
 
 		/**
 		 * An additional customizable icon component.
@@ -158,22 +134,6 @@ const ToggleItemBase = kind({
 		 * @public
 		 */
 		itemIcon: PropTypes.node,
-
-		/**
-		 * Specifies where `itemIcon` appears.
-		 *
-		 * * `'before'` - first element in the item
-		 * * `'beforeChildren'` - before `children`. If `iconPosition` is `'before'`, `icon` will be
-		 *	before `itemIcon`
-		 * * `'afterChildren'` - after `children`. If iconPosition` is `'after'`, `icon` will be
-		 *	after `itemIcon`
-		 * * `'after'` - the last element in the item
-		 *
-		 * @type {('before'|'beforeChildren'|'afterChildren'|'after')}
-		 * @default 'afterChildren'
-		 * @public
-		 */
-		itemIconPosition: PropTypes.oneOf(['before', 'beforeChildren', 'afterChildren', 'after']),
 
 		/**
 		 * Called when the toggle item is toggled. Developers should generally use `onToggle` instead.
@@ -215,8 +175,6 @@ const ToggleItemBase = kind({
 
 	defaultProps: {
 		disabled: false,
-		iconPosition: 'before',
-		itemIconPosition: 'afterChildren',
 		selected: false,
 		value: null
 	},
@@ -234,17 +192,15 @@ const ToggleItemBase = kind({
 
 	render: ({css, children, selected, ...rest}) => {
 		delete rest.iconComponent;
-		delete rest.iconPosition;
 		delete rest.itemIcon;
-		delete rest.itemIconPosition;
 		delete rest.value;
 
 		return (
 			<SlotItemBase
+				aria-checked={selected}
+				css={css}
 				role="checkbox"
 				{...rest}
-				css={css}
-				aria-checked={selected}
 			>
 				<div className={componentCss.content}>{children}</div>
 			</SlotItemBase>

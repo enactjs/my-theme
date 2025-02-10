@@ -7,11 +7,11 @@
  * @example
  * <SlotItem autoHide="both">
  * 	<slotBefore>
- * 		<Icon size="small">flag</Icon>
- * 		<Icon size="small">star</Icon>
+ * 		<Icon>flag</Icon>
+ * 		<Icon>star</Icon>
  * 	</slotBefore>
  * 	An Item that will show some icons before and after this text when spotted
- * 	<Icon size="small" slot="slotAfter">trash</Icon>
+ * 	<Icon slot="slotAfter">trash</Icon>
  * </SlotItem>
  *
  * @module my-theme/SlotItem
@@ -80,27 +80,6 @@ const SlotItemBase = kind({
 		css: PropTypes.object,
 
 		/**
-		 * Applies inline styling to the component.
-		 *
-		 * @type {Boolean}
-		 * @default false
-		 * @public
-		 */
-		inline: PropTypes.bool,
-
-		/**
-		 * The layout technique for `SlotItem`.
-		 *
-		 * `"flex"` is applied as a default and gives basic flex support to the wrapping elements.
-		 * This may be set to `null` to define your own layout method.
-		 *
-		 * @type {String}
-		 * @default 'flex'
-		 * @public
-		 */
-		layout: PropTypes.oneOf(['flex']),
-
-		/**
 		 * Nodes to be inserted after `children` and hidden using `autoHide`.
 		 *
 		 * If nothing is specified, nothing, not even an empty container, is rendered in this place.
@@ -121,12 +100,6 @@ const SlotItemBase = kind({
 		slotBefore: PropTypes.node
 	},
 
-	defaultProps: {
-		component: 'div',
-		inline: false,
-		layout: 'flex'
-	},
-
 	styles: {
 		css: componentCss,
 		className: 'slotItem',
@@ -134,7 +107,6 @@ const SlotItemBase = kind({
 	},
 
 	computed: {
-		className: ({inline, layout, styler}) => styler.append(layout, {inline}),
 		slotBefore: ({slotBefore, autoHide, styler}) => (slotBefore ?
 			<div className={styler.join('slot', 'before', {hidden: (autoHide === 'before' || autoHide === 'both')})}>
 				{slotBefore}
@@ -147,14 +119,12 @@ const SlotItemBase = kind({
 		)
 	},
 
-	render: ({css, children, inline, slotAfter, slotBefore, ...rest}) => {
+	render: ({css, children, slotAfter, slotBefore, ...rest}) => {
 		delete rest.autoHide;
-		delete rest.layout;
 
 		return (
 			<ItemBase
 				css={css}
-				inline={inline}
 				{...rest}
 			>
 				{slotBefore}
@@ -186,7 +156,6 @@ const SlotItemDecorator = compose(
 /**
  * A MyTheme styled item with built-in support for overlays.
  *
- * Example:
  * ```
  *	<SlotItem autoHide="both">
  *		<slotBefore>
@@ -200,6 +169,7 @@ const SlotItemDecorator = compose(
  *
  * @class SlotItem
  * @memberof my-theme/SlotItem
+ * @extends my-theme/SlotItem.SlotItemBase
  * @mixes my-theme/SlotItem.SlotItemDecorator
  * @ui
  * @public
