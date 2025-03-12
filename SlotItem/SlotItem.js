@@ -107,12 +107,12 @@ const SlotItemBase = kind({
 	},
 
 	computed: {
-		slotBefore: ({slotBefore, autoHide, styler}) => (slotBefore ?
+		slotBefore: ({autoHide, slotBefore, styler}) => (slotBefore ?
 			<div className={styler.join('slot', 'before', {hidden: (autoHide === 'before' || autoHide === 'both')})}>
 				{slotBefore}
 			</div> : null
 		),
-		slotAfter: ({slotAfter, autoHide, styler}) => (slotAfter ?
+		slotAfter: ({autoHide, slotAfter, styler}) => (slotAfter ?
 			<div className={styler.join('slot', 'after', {hidden: (autoHide === 'after' || autoHide === 'both')})}>
 				{slotAfter}
 			</div> : null

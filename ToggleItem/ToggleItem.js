@@ -20,8 +20,8 @@
 
 import EnactPropTypes from '@enact/core/internal/prop-types';
 import kind from '@enact/core/kind';
-import ComponentOverride from '@enact/ui/ComponentOverride';
 import Spottable from '@enact/spotlight/Spottable';
+import ComponentOverride from '@enact/ui/ComponentOverride';
 import Toggleable from '@enact/ui/Toggleable';
 import Touchable from '@enact/ui/Touchable';
 import PropTypes from 'prop-types';
