@@ -23,7 +23,7 @@
 import kind from '@enact/core/kind';
 import Spottable from '@enact/spotlight/Spottable';
 import {ItemDecorator as UiItemDecorator} from '@enact/ui/Item';
-import {SlotItemBase as UiSlotItemBase, SlotItemDecorator as UiSlotItemDecorator} from '@enact/ui/SlotItem';
+import Slottable from '@enact/ui/Slottable';
 import PropTypes from 'prop-types';
 import compose from 'ramda/src/compose';
 
@@ -37,9 +37,6 @@ import componentCss from './SlotItem.module.less';
  *
  * @class SlotItemBase
  * @memberof my-theme/SlotItem
- * @extends ui/SlotItem.SlotItemBase
- * @omit component
- * @mixes my-theme/Item.ItemBase
  * @ui
  * @public
  */
@@ -48,8 +45,30 @@ const SlotItemBase = kind({
 
 	propTypes: /** @lends my-theme/SlotItem.SlotItemBase.prototype */ {
 		/**
+		 * Controls the visibility state of the slots.
+		 *
+		 * One, both, or neither slot can be shown. Choosing `'after'` will leave `slotBefore`
+		 * visible at all times; only `slotAfter` will have its visibility toggled.  Valid values
+		 * are `'before'`, `'after'` and `'both'`. Omitting the property will result in
+		 * no-auto-hiding for either slot, so they will both be present.
+		 *
+		 * In order for `autoHide` to have a visual affect, the `hidden` class must be tied to
+		 * another condition such as focus.
+		 *
+		 * ```
+		 * .slot.hidden:not(:focus) {
+		 *   display: none;
+		 * }
+		 * ```
+		 *
+		 * @type {Boolean}
+		 * @public
+		 */
+		autoHide: PropTypes.oneOf(['after', 'before', 'both']),
+
+		/**
 		 * Customizes the component by mapping the supplied collection of CSS class names to the
-		 * corresponding internal Elements and states of this component.
+		 * corresponding internal elements and states of this component.
 		 *
 		 * The following classes are supported:
 		 *
@@ -58,23 +77,60 @@ const SlotItemBase = kind({
 		 * @type {Object}
 		 * @public
 		 */
-		css: PropTypes.object
+		css: PropTypes.object,
+
+		/**
+		 * Nodes to be inserted after `children` and hidden using `autoHide`.
+		 *
+		 * If nothing is specified, nothing, not even an empty container, is rendered in this place.
+		 *
+		 * @type {Node}
+		 * @public
+		 */
+		slotAfter: PropTypes.node,
+
+		/**
+		 * Nodes to be inserted before `children` and hidden using `autoHide`.
+		 *
+		 * If nothing is specified, nothing, not even an empty container, is rendered in this place.
+		 *
+		 * @type {Node}
+		 * @public
+		 */
+		slotBefore: PropTypes.node
 	},
 
 	styles: {
 		css: componentCss,
-		publicClassNames: ['slotItem']
+		className: 'slotItem',
+		publicClassNames: true
 	},
 
-	render: ({children, css, ...rest}) => {
+	computed: {
+		slotBefore: ({autoHide, slotBefore, styler}) => (slotBefore ?
+			<div className={styler.join('slot', 'before', {hidden: (autoHide === 'before' || autoHide === 'both')})}>
+				{slotBefore}
+			</div> : null
+		),
+		slotAfter: ({autoHide, slotAfter, styler}) => (slotAfter ?
+			<div className={styler.join('slot', 'after', {hidden: (autoHide === 'after' || autoHide === 'both')})}>
+				{slotAfter}
+			</div> : null
+		)
+	},
+
+	render: ({css, children, slotAfter, slotBefore, ...rest}) => {
+		delete rest.autoHide;
+
 		return (
-			<UiSlotItemBase
-				{...rest}
-				component={ItemBase}
+			<ItemBase
 				css={css}
+				{...rest}
 			>
+				{slotBefore}
 				<div className={css.content}>{children}</div>
-			</UiSlotItemBase>
+				{slotAfter}
+			</ItemBase>
 		);
 	}
 });
@@ -84,18 +140,17 @@ const SlotItemBase = kind({
  *
  * @class SlotItemDecorator
  * @memberof my-theme/SlotItem
- * @mixes ui/SlotItem.SlotItemDecorator
- * @mixes ui/Toggleable
- * @mixes spotlight.Spottable
- * @mixes my-theme/Skinnable
+ * @mixes my-theme/Skinnable.Skinnable
+ * @mixes spotlight/Spottable.Spottable
+ * @mixes ui/Slottable.Slottable
  * @hoc
  * @public
  */
 const SlotItemDecorator = compose(
-	UiSlotItemDecorator,
-	UiItemDecorator, // (Touchable)
+	Slottable({slots: ['slotAfter', 'slotBefore']}),
+	Skinnable,
 	Spottable,
-	Skinnable
+	UiItemDecorator
 );
 
 /**

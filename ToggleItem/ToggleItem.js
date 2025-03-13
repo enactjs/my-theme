@@ -9,7 +9,6 @@
  * @example
  * <ToggleItem
  * 	iconComponent={Checkbox}
- * 	iconPosition='before'>
  * 	Toggle me
  * </ToggleItem>
  *
@@ -19,17 +18,35 @@
  * @exports ToggleItemDecorator
  */
 
-import kind from '@enact/core/kind';
 import EnactPropTypes from '@enact/core/internal/prop-types';
+import kind from '@enact/core/kind';
 import Spottable from '@enact/spotlight/Spottable';
-import {ToggleItemBase as UiToggleItem, ToggleItemDecorator as UiToggleItemDecorator} from '@enact/ui/ToggleItem';
+import ComponentOverride from '@enact/ui/ComponentOverride';
+import Toggleable from '@enact/ui/Toggleable';
+import Touchable from '@enact/ui/Touchable';
 import PropTypes from 'prop-types';
 import compose from 'ramda/src/compose';
+import {Fragment} from 'react';
 
-import Skinnable from '../Skinnable';
 import {SlotItemBase} from '../SlotItem';
+import Skinnable from '../Skinnable';
 
 import componentCss from './ToggleItem.module.less';
+
+// eslint-disable-next-line enact/display-name,enact/prop-types
+const iconCreator = () => ({disabled, icon, iconComponent, selected}) => {
+	return (
+		<Fragment>
+			<ComponentOverride
+				component={iconComponent}
+				disabled={disabled}
+				selected={selected}
+			>
+				{icon}
+			</ComponentOverride>
+		</Fragment>
+	);
+};
 
 /**
  * A MyTheme styled toggle [Item]{@link my-theme/Item} without any behavior.
@@ -66,7 +83,7 @@ const ToggleItemBase = kind({
 
 		/**
 		 * Customizes the component by mapping the supplied collection of CSS class names to the
-		 * corresponding internal Elements and states of this component.
+		 * corresponding internal elements and states of this component.
 		 *
 		 * The following classes are supported:
 		 *
@@ -78,31 +95,92 @@ const ToggleItemBase = kind({
 		css: PropTypes.object,
 
 		/**
-		 * Overrides the icon of the `iconComponent` component.
+		 * Applies a disabled visual state to the toggle item.
+		 *
+		 * @type {Boolean}
+		 * @default false
+		 * @public
+		 */
+		disabled: PropTypes.bool,
+
+		/**
+		 * An optional prop that lets you override the icon of the `iconComponent` component.
 		 *
 		 * This accepts any string that the [Icon]{@link my-theme/Icon.Icon} component supports,
 		 * provided the recommendations of `iconComponent` are followed.
 		 *
-		 * @type {String}
+		 * @type {String|Object}
 		 * @public
 		 */
-		icon: PropTypes.string
+		icon: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+
+		/**
+		 * Called when the toggle item is toggled. Developers should generally use `onToggle` instead.
+		 *
+		 * @type {Function}
+		 * @public
+		 */
+		onTap: PropTypes.func,
+
+		/**
+		 * Called when the toggle item is toggled.
+		 *
+		 * @type {Function}
+		 * @param {Object} event
+		 * @param {String} event.selected - Selected value of item.
+		 * @param {*} event.value - Value passed from `value` prop.
+		 * @public
+		 */
+		onToggle: PropTypes.func,
+
+		/**
+		 * Applies the provided `icon`.
+		 *
+		 * @type {Boolean}
+		 * @default false
+		 * @public
+		 */
+		selected: PropTypes.bool,
+
+		/**
+		 * The value that will be sent to the `onToggle` handler.
+		 *
+		 * @type {*}
+		 * @default null
+		 * @public
+		 */
+		value: PropTypes.any
+	},
+
+	defaultProps: {
+		disabled: false,
+		selected: false,
+		value: null
 	},
 
 	styles: {
 		css: componentCss,
-		publicClassNames: ['toggleItem']
+		className: 'toggleItem',
+		publicClassNames: true
 	},
 
-	render: (props) => {
+	computed: {
+		slotBefore: iconCreator()
+	},
+
+	render: ({css, children, selected, ...rest}) => {
+		delete rest.iconComponent;
+		delete rest.value;
 
 		return (
-			<UiToggleItem
+			<SlotItemBase
+				aria-checked={selected}
+				css={css}
 				role="checkbox"
-				{...props}
-				component={SlotItemBase}
-				css={props.css}
-			/>
+				{...rest}
+			>
+				<div className={componentCss.content}>{children}</div>
+			</SlotItemBase>
 		);
 	}
 });
@@ -112,14 +190,17 @@ const ToggleItemBase = kind({
  *
  * @class ToggleItemDecorator
  * @memberof my-theme/ToggleItem
- * @mixes ui/ToggleItem.ToggleItemDecorator
+ * @mixes my-theme/Skinnable.Skinnable
  * @mixes spotlight/Spottable.Spottable
- * @mixes my-theme/Skinnable
+ * @mixes ui/ForwardRef.ForwardRef
+ * @mixes ui/Touchable.Touchable
+ * @mixes ui/Toggleable.Toggleable
  * @hoc
  * @public
  */
 const ToggleItemDecorator = compose(
-	UiToggleItemDecorator,
+	Toggleable({toggleProp: 'onTap', eventProps: ['value']}),
+	Touchable,
 	Spottable,
 	Skinnable
 );
